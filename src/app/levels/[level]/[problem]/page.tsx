@@ -3,11 +3,14 @@ import { problems } from "@/lib/problems/problemsData";
 import NoCodeSolution from "@/components/solutions/NoCodeSolution";
 import JavaScriptSolution from "@/components/solutions/JavaScriptSolution";
 
-export default function ProblemPage({
-  params,
-}: {
-  params: { level: string; problem: string };
-}) {
+interface PageProps {
+  params: {
+    level: string;
+    problem: string;
+  };
+}
+
+export default async function ProblemPage({ params }: PageProps) {
   const levelNumber = parseInt(params.level);
   const levelData = problems.find((p) => p.id === levelNumber);
   const problemData = levelData?.problems.find((p) => p.id === params.problem);
@@ -55,4 +58,20 @@ export default function ProblemPage({
       </div>
     </div>
   );
+}
+
+// Générer les chemins statiques
+export async function generateStaticParams() {
+  const paths: { level: string; problem: string }[] = [];
+
+  problems.forEach((level) => {
+    level.problems.forEach((problem) => {
+      paths.push({
+        level: level.id.toString(),
+        problem: problem.id,
+      });
+    });
+  });
+
+  return paths;
 }
