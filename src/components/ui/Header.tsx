@@ -1,13 +1,13 @@
 "use client";
 
-import { Moon, Sun, Menu } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 
 export function Header() {
   const { setTheme, theme } = useTheme();
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
