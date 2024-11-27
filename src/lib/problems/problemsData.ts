@@ -1,13 +1,13 @@
-type Difficulty = "facile" | "moyen" | "dificile";
+export type Difficulty = "facile" | "moyen" | "dificile";
 
-interface Problem {
+export interface Problem {
   id: string;
   title: string;
   description: string;
   difficulty: Difficulty;
 }
 
-interface ProblemLevel {
+export interface ProblemLevel {
   id: number;
   title: string;
   problems: Problem[];

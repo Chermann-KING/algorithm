@@ -1,24 +1,27 @@
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { problems } from "@/lib/problems/problemsData";
 import NoCodeSolution from "@/components/solutions/NoCodeSolution";
 import JavaScriptSolution from "@/components/solutions/JavaScriptSolution";
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 type Props = {
   params: {
     level: string;
     problem: string;
   };
-  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
-    title: `Problem ${params.problem} - Level ${params.level}`,
+    title: `Problème ${params.problem} - Niveau ${params.level}`,
   };
 }
 
 export default function Page({ params }: Props) {
+  if (!params.level || !params.problem) {
+    notFound();
+  }
+
   const levelNumber = parseInt(params.level);
   const levelData = problems.find((p) => p.id === levelNumber);
   const problemData = levelData?.problems.find((p) => p.id === params.problem);
@@ -67,6 +70,8 @@ export default function Page({ params }: Props) {
     </div>
   );
 }
+
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return problems.flatMap((level) =>
