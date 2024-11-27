@@ -30,39 +30,51 @@ export default function Page({ params }: Props) {
     notFound();
   }
 
+  const difficultyStyles = {
+    facile:
+      "bg-green-100/80 text-green-800 dark:bg-green-800/20 dark:text-green-300",
+    moyen:
+      "bg-yellow-100/80 text-yellow-800 dark:bg-yellow-800/20 dark:text-yellow-300",
+    dificile: "bg-red-100/80 text-red-800 dark:bg-red-800/20 dark:text-red-300",
+  };
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
+    <div className="container mx-auto px-4 py-6 sm:py-8">
+      <div className="mb-6 sm:mb-8">
+        <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-2">
           <span>Niveau {levelNumber}</span>
-          <span>•</span>
+          <span className="hidden sm:inline">•</span>
           <span
-            className={`px-2 py-1 rounded-full text-sm ${
-              problemData.difficulty === "facile"
-                ? "bg-green-100 text-green-800"
-                : problemData.difficulty === "moyen"
-                ? "bg-yellow-100 text-yellow-800"
-                : "bg-red-100 text-red-800"
+            className={`px-2 py-1 rounded-full ${
+              difficultyStyles[problemData.difficulty]
             }`}
           >
             {problemData.difficulty}
           </span>
         </div>
-        <h1 className="text-3xl font-bold mb-4">{problemData.title}</h1>
-        <p className="text-lg text-gray-700">{problemData.description}</p>
+        <h1 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-foreground">
+          {problemData.title}
+        </h1>
+        <p className="text-base sm:text-lg text-muted-foreground">
+          {problemData.description}
+        </p>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-6 sm:space-y-8">
         <section>
-          <h2 className="text-2xl font-semibold mb-4">Solution NOCODE</h2>
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-foreground">
+            Solution NOCODE
+          </h2>
+          <div className="bg-card rounded-lg shadow-sm p-4 sm:p-6 border border-border">
             <NoCodeSolution problemId={problemData.id} />
           </div>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-4">Solution JavaScript</h2>
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-foreground">
+            Solution JavaScript
+          </h2>
+          <div className="bg-card rounded-lg shadow-sm p-4 sm:p-6 border border-border">
             <JavaScriptSolution problemId={problemData.id} />
           </div>
         </section>

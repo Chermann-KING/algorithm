@@ -40,14 +40,16 @@ export default function ProblemList({
 
   if (allProblems.length === 0) {
     return (
-      <div className="text-center py-8">
-        <p className="text-muted-foreground">Aucun problème trouvé.</p>
+      <div className="text-center py-6 sm:py-8">
+        <p className="text-muted-foreground text-sm sm:text-base">
+          Aucun problème trouvé.
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
       {allProblems.map((problem) => (
         <ProblemCard
           key={problem.id}

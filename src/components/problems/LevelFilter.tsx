@@ -15,25 +15,25 @@ export default function LevelFilter({
     <div className="flex gap-2 flex-wrap">
       <button
         onClick={() => onLevelChange(null)}
-        className={`px-4 py-2 rounded-lg transition-colors ${
+        className={`px-4 py-2 text-sm rounded-lg transition-colors ${
           selectedLevel === null
             ? "bg-primary text-primary-foreground"
             : "bg-background hover:bg-muted text-muted-foreground hover:text-foreground"
         }`}
       >
-        Tous les niveaux
+        <span>Tous les niveaux</span>
       </button>
       {problems.map((level) => (
         <button
           key={level.id}
           onClick={() => onLevelChange(level.id)}
-          className={`px-4 py-2 rounded-lg transition-colors ${
+          className={`px-4 py-2 text-sm rounded-lg transition-colors ${
             selectedLevel === level.id
               ? "bg-primary text-primary-foreground"
               : "bg-background hover:bg-muted text-muted-foreground hover:text-foreground"
           }`}
         >
-          Niveau {level.id}
+          <span>Niveau {level.id}</span>
         </button>
       ))}
     </div>
