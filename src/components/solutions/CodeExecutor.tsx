@@ -47,12 +47,12 @@ export default function CodeExecutor({ code }: CodeExecutorProps) {
   return (
     <div className="space-y-4">
       <button
-        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+        className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors"
         onClick={executeCode}
       >
         Exécuter le code
       </button>
-      <div className="bg-black text-green-400 p-4 rounded-lg min-h-[100px] font-mono whitespace-pre-wrap">
+      <div className="bg-card text-primary font-mono p-4 rounded-lg min-h-[100px] whitespace-pre-wrap border border-border">
         {output}
       </div>
     </div>
