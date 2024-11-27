@@ -1,5 +1,6 @@
 import ProblemCard from "./ProblemCard";
 import { problems } from "@/lib/problems/problemsData";
+import { useSearch } from "@/context/search-context";
 
 interface ProblemListProps {
   selectedLevel: number | null;
@@ -10,13 +11,27 @@ export default function ProblemList({
   selectedLevel,
   selectedDifficulty,
 }: ProblemListProps) {
+  const { searchTerm } = useSearch();
+
   const allProblems = problems
     .filter((level) => (selectedLevel ? level.id === selectedLevel : true))
     .flatMap((level) =>
       level.problems
-        .filter((problem) =>
-          selectedDifficulty ? problem.difficulty === selectedDifficulty : true
-        )
+        .filter((problem) => {
+          const matchesDifficulty = selectedDifficulty
+            ? problem.difficulty === selectedDifficulty
+            : true;
+          const matchesSearch =
+            searchTerm.trim() === ""
+              ? true
+              : problem.title
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase()) ||
+                problem.description
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase());
+          return matchesDifficulty && matchesSearch;
+        })
         .map((problem) => ({
           ...problem,
           levelId: level.id,

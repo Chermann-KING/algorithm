@@ -3,11 +3,10 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
+import { SearchBar } from "./SearchBar";
 
 export function Header() {
   const { setTheme, theme } = useTheme();
-  // const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -20,7 +19,9 @@ export function Header() {
           </Link>
         </div>
 
-        <div className="flex flex-1 items-center justify-end space-x-4">
+        <SearchBar />
+
+        <div className="flex items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
             <button
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
