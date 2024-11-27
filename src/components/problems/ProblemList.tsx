@@ -3,24 +3,25 @@ import { problems } from "@/lib/problems/problemsData";
 
 interface ProblemListProps {
   selectedLevel: number | null;
+  selectedDifficulty: "facile" | "moyen" | "dificile" | null;
 }
 
-export default function ProblemList({ selectedLevel }: ProblemListProps) {
-  const allProblems = selectedLevel
-    ? problems
-        .filter((level) => level.id === selectedLevel)
-        .flatMap((level) =>
-          level.problems.map((problem) => ({
-            ...problem,
-            levelId: level.id,
-          }))
+export default function ProblemList({
+  selectedLevel,
+  selectedDifficulty,
+}: ProblemListProps) {
+  const allProblems = problems
+    .filter((level) => (selectedLevel ? level.id === selectedLevel : true))
+    .flatMap((level) =>
+      level.problems
+        .filter((problem) =>
+          selectedDifficulty ? problem.difficulty === selectedDifficulty : true
         )
-    : problems.flatMap((level) =>
-        level.problems.map((problem) => ({
+        .map((problem) => ({
           ...problem,
           levelId: level.id,
         }))
-      );
+    );
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

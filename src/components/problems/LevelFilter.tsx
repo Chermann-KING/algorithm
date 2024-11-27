@@ -12,7 +12,7 @@ export default function LevelFilter({
   onLevelChange,
 }: LevelFilterProps) {
   return (
-    <div className="flex gap-2 mb-8 flex-wrap">
+    <div className="flex gap-2 flex-wrap">
       <button
         onClick={() => onLevelChange(null)}
         className={`px-4 py-2 rounded-lg ${
