@@ -15,7 +15,7 @@ export function Footer() {
             </a>
             . Le code source est disponible sur{" "}
             <a
-              href="https://github.com/Chermann-KING"
+              href="https://github.com/Chermann-KING/algorithm"
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
