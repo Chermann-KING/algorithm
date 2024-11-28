@@ -14,10 +14,10 @@ export interface JavaScriptSolution extends BaseSolution {
   }[];
 }
 
-// Solution Flowgorithm
+// Solution Flowgorithm (maintenant avec Mermaid)
 export interface FlowgorithmSolution extends BaseSolution {
   code: string; // Description textuelle de l'algorithme
-  svg: string; // Diagramme en format SVG
+  diagram: string; // Le diagramme en syntaxe Mermaid
 }
 
 // Type utilitaire pour stocker les solutions
