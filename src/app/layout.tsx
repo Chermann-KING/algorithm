@@ -21,11 +21,6 @@ export const metadata: Metadata = {
   title: "Algorithme - Apprendre l'algorithme étape par étape",
   description:
     "Une plateforme pour apprendre et pratiquer les algorithmes avec des solutions visuelles NOCODE et JavaScript",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
 };
 
 export default function RootLayout({

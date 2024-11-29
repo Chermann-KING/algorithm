@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
-import { getFlowgorithmSolution } from "@/lib/solutions/getSolution";
+import Image from "next/image";
+import { findFlowgorithmSolution } from "@/lib/solutions/getSolution";
 
-// Import dynamique de MermaidDiagram pour le rendu côté client
 const MermaidDiagram = dynamic(() => import("@/components/ui/Mermaid"), {
   ssr: false,
   loading: () => (
@@ -10,18 +10,19 @@ const MermaidDiagram = dynamic(() => import("@/components/ui/Mermaid"), {
     </div>
   ),
 });
+
 interface NoCodeSolutionProps {
   problemId: string;
 }
 
 export default function NoCodeSolution({ problemId }: NoCodeSolutionProps) {
-  const solution = getFlowgorithmSolution(problemId);
+  const solution = findFlowgorithmSolution(problemId);
 
   if (!solution) {
     return (
       <div className="text-center py-4">
         <p className="text-muted-foreground">
-          Solution en cours de développement
+          Diagramme de solution en cours de développement
         </p>
       </div>
     );
@@ -35,7 +36,23 @@ export default function NoCodeSolution({ problemId }: NoCodeSolutionProps) {
         </h3>
 
         <div className="bg-background rounded-lg p-4">
-          <MermaidDiagram chart={solution.diagram} />
+          {solution.imagePath ? (
+            <div className="relative h-[600px] w-full">
+              <Image
+                src={`/flowcharts/${solution.imagePath}`}
+                alt={`Diagramme pour ${problemId}`}
+                fill
+                className="object-contain dark:invert"
+                priority
+              />
+            </div>
+          ) : solution.diagram ? (
+            <MermaidDiagram chart={solution.diagram} />
+          ) : (
+            <p className="text-muted-foreground text-center py-4">
+              Diagramme non disponible
+            </p>
+          )}
         </div>
       </div>
 
