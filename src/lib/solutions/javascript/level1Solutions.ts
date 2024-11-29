@@ -73,4 +73,21 @@ console.log("A une voiture:", aVoiture);`,
       },
     ],
   },
+  exo02: {
+    problemId: "exo02",
+    code: `// Déclarer et initialiser la variable message
+const message = "Bienvenue";
+
+// Afficher le contenu de la variable
+console.log(message);`,
+    explanation:
+      "La solution consiste simplement à stocker une chaîne de caractères dans une variable nommée 'message', puis à l'afficher avec console.log.",
+    testCases: [
+      {
+        input: [],
+        expected: "Bienvenue",
+        description: "Vérification de l'affichage du message",
+      },
+    ],
+  },
 };

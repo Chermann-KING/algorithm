@@ -14,11 +14,11 @@ export interface JavaScriptSolution extends BaseSolution {
   }[];
 }
 
-// Solution Flowgorithm (maintenant avec Mermaid)
+// Solution Flowgorithm avec support des images
 export interface FlowgorithmSolution extends BaseSolution {
   code: string; // Description textuelle de l'algorithme
-  diagram: string; // Le diagramme en syntaxe Mermaid
+  diagram?: string; // Le diagramme Mermaid (optionnel)
+  imagePath?: string; // Chemin vers l'image du flowchart (ex: "level1/exo01.png")
 }
 
-// Type utilitaire pour stocker les solutions
 export type SolutionRecord<T> = Record<string, T>;

@@ -1,6 +1,6 @@
 import React from "react";
 import CodeExecutor from "./CodeExecutor";
-import { getJavaScriptSolution } from "@/lib/solutions/getSolution";
+import { findJavaScriptSolution } from "@/lib/solutions/getSolution";
 
 interface JavaScriptSolutionProps {
   problemId: string;
@@ -9,7 +9,7 @@ interface JavaScriptSolutionProps {
 export default function JavaScriptSolution({
   problemId,
 }: JavaScriptSolutionProps) {
-  const solution = getJavaScriptSolution(problemId);
+  const solution = findJavaScriptSolution(problemId);
 
   if (!solution) {
     return (
