@@ -90,4 +90,34 @@ console.log(message);`,
       },
     ],
   },
+  exo03: {
+    problemId: "exo03",
+    explanation:
+      "Cette solution montre comment inverser deux variables en utilisant une variable temporaire. Cette technique est fondamentale en programmation car elle permet d'échanger des valeurs sans en perdre.",
+    code: `// Déclaration et initialisation des variables
+let nb1 = 5;
+let nb2 = 7;
+
+// Affichage des valeurs initiales
+console.log("Avant inversion :");
+console.log("nb1 contient :", nb1);
+console.log("nb2 contient :", nb2);
+
+// Processus d'inversion avec variable temporaire
+let temp = nb1;   // On sauvegarde la valeur de nb1
+nb1 = nb2;        // nb1 prend la valeur de nb2
+nb2 = temp;       // nb2 prend l'ancienne valeur de nb1
+
+// Affichage après inversion
+console.log("\\nAprès inversion :");
+console.log("nb1 contient :", nb1);
+console.log("nb2 contient :", nb2);`,
+    testCases: [
+      {
+        input: [],
+        expected: "Les valeurs ont été inversées",
+        description: "Vérification de l'inversion des variables",
+      },
+    ],
+  },
 };
