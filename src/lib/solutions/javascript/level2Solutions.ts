@@ -91,4 +91,77 @@ afficherEtat();`,
       },
     ],
   },
+  exo09: {
+    problemId: "exo09",
+    explanation:
+      "Cette solution simule un distributeur de boissons avec une gestion de stock et des interactions utilisateur. Elle montre comment gérer des choix multiples et maintenir un état cohérent.",
+    code: `// Initialisation des stocks
+let stocks = {
+  coca: 5,
+  eau: 3,
+  orangina: 4
+};
+
+// Fonction pour afficher le menu
+function afficherMenu() {
+  console.log("=== Distributeur de Boissons ===");
+  console.log("1. Coca (" + stocks.coca + " en stock)");
+  console.log("2. Eau (" + stocks.eau + " en stock)");
+  console.log("3. Orangina (" + stocks.orangina + " en stock)");
+  console.log("4. Quitter");
+  console.log("==============================");
+}
+
+// Fonction pour servir une boisson
+function servirBoisson(choix) {
+  let boisson = "";
+  let stock = 0;
+
+  switch(choix) {
+    case 1:
+      boisson = "Coca";
+      stock = stocks.coca;
+      if (stock > 0) stocks.coca--;
+      break;
+    case 2:
+      boisson = "Eau";
+      stock = stocks.eau;
+      if (stock > 0) stocks.eau--;
+      break;
+    case 3:
+      boisson = "Orangina";
+      stock = stocks.orangina;
+      if (stock > 0) stocks.orangina--;
+      break;
+  }
+
+  if (stock > 0) {
+    console.log("Voici votre " + boisson + "!");
+  } else {
+    console.log("Désolé, plus de " + boisson + " en stock.");
+  }
+}
+
+// Simulation du distributeur
+afficherMenu();
+console.log("\\nTest avec Coca (choix 1):");
+servirBoisson(1);
+afficherMenu();
+
+console.log("\\nTest avec Eau (choix 2):");
+servirBoisson(2);
+afficherMenu();`,
+    testCases: [
+      {
+        input: [1],
+        expected: "Service de Coca réussi",
+        description: "Test de service Coca",
+      },
+      {
+        input: [2],
+        expected: "Service d'Eau réussi",
+        description: "Test de service Eau",
+      },
+    ],
+  },
 };

@@ -37,4 +37,24 @@ Cette logique permet d'avoir des années bissextiles tous les 4 ans, sauf les an
     code: "L'algorithme simule le fonctionnement d'un lanceur de balles avec gestion d'état.",
     imagePath: "level2/flowgorithm-level2-exo08.svg",
   },
+  exo09: {
+    problemId: "exo09",
+    explanation: `Ce diagramme illustre le fonctionnement d'un distributeur de boissons simple :
+
+1. Initialisation du stock :
+   - Chaque type de boisson a son propre compteur
+   - Les stocks sont limités et diminuent à chaque service
+
+2. Interface utilisateur :
+   - Un menu numéroté pour faciliter le choix
+   - Option pour quitter le programme
+   - Retour au menu après chaque action
+
+3. Gestion des stocks :
+   - Vérification avant de servir
+   - Mise à jour après chaque service
+   - Message d'erreur si rupture de stock`,
+    code: "L'algorithme simule un distributeur de boissons avec gestion de stock et interface utilisateur.",
+    imagePath: "level2/flowgorithm-level2-exo09.svg",
+  },
 };
