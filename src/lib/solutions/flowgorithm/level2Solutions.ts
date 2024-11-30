@@ -19,4 +19,22 @@ Cette logique permet d'avoir des années bissextiles tous les 4 ans, sauf les an
     code: "L'algorithme vérifie les conditions de divisibilité pour déterminer si une année est bissextile.",
     imagePath: "level2/flowgorithm-level2-exo07.svg",
   },
+  exo08: {
+    problemId: "exo08",
+    explanation: `Ce diagramme simule un lanceur de balles de tennis simple :
+
+1. Le lanceur gère deux états :
+   - État "prêt" : le lanceur peut lancer une balle
+   - État "panier vide" : plus aucune balle disponible
+
+2. Le système vérifie avant chaque lancer :
+   - S'il reste des balles, on peut lancer
+   - Sinon, on signale que le panier est vide
+
+3. À chaque lancer :
+   - Le nombre de balles diminue de 1
+   - Les états sont mis à jour en conséquence`,
+    code: "L'algorithme simule le fonctionnement d'un lanceur de balles avec gestion d'état.",
+    imagePath: "level2/flowgorithm-level2-exo08.svg",
+  },
 };

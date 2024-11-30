@@ -45,4 +45,50 @@ console.log('\\nConclusion : ' + annee + (estBissextile ? ' est' : ' n\\'est pas
       },
     ],
   },
+  exo08: {
+    problemId: "exo08",
+    explanation:
+      "Cette solution montre comment simuler un système simple avec états et conditions. Le nombre de balles détermine l'état du lanceur.",
+    code: `// Initialisation du lanceur
+let balles = 5;
+let estPret = true;
+let panierVide = false;
+
+// Fonction pour afficher l'état actuel
+function afficherEtat() {
+  if (estPret) {
+    console.log("Prêt à lancer");
+    console.log("Il reste " + balles + " balle(s)");
+  }
+  if (panierVide) {
+    console.log("Le panier est vide");
+    console.log("Veuillez le remplir");
+  }
+}
+
+// Simulation de plusieurs lancers
+console.log("=== État initial ===");
+afficherEtat();
+
+console.log("\\n=== Premier lancer ===");
+if (balles > 0) {
+  balles--;
+  afficherEtat();
+}
+
+console.log("\\n=== Lancer jusqu'à vide ===");
+while (balles > 0) {
+  balles--;
+}
+estPret = false;
+panierVide = true;
+afficherEtat();`,
+    testCases: [
+      {
+        input: [],
+        expected: "Simulation complète du lanceur",
+        description: "Vérification du comportement du lanceur",
+      },
+    ],
+  },
 };
