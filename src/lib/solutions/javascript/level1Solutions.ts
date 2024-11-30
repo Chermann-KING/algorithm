@@ -188,4 +188,40 @@ console.log(\`\${secondes} seconde(s)\`);`,
       },
     ],
   },
+  exo06: {
+    problemId: "exo06",
+    explanation:
+      "Cette solution démontre l'utilisation des opérateurs logiques et de comparaison en JavaScript. Les résultats sont affichés avec des explications pour chaque opération.",
+    code: `// Initialisation des variables
+const A = 3;
+const B = 9;
+const C = false;
+const D = !C;  // NON(C)
+const E = 9;
+
+console.log("Valeurs initiales :");
+console.log("A =", A);
+console.log("B =", B);
+console.log("C =", C);
+console.log("D =", D);
+console.log("E =", E);
+
+console.log("\\nOpérations de comparaison :");
+console.log("B = E ?", B === E, "(car 9 = 9)");
+console.log("B > A ?", B > A, "(car 9 > 3)");
+console.log("A < E ?", A < E, "(car 3 < 9)");
+
+console.log("\\nOpérations logiques :");
+console.log("NON(C) ?", !C, "(car NON(false) donne true)");
+console.log("A < B ET B = E ?", A < B && B === E, "(car true ET true donne true)");
+console.log("C OU D ?", C || D, "(car false OU true donne true)");
+console.log("NON(B > A) ?", !(B > A), "(car NON(true) donne false)");`,
+    testCases: [
+      {
+        input: [],
+        expected: "Toutes les opérations logiques sont correctes",
+        description: "Vérification des opérations logiques",
+      },
+    ],
+  },
 };

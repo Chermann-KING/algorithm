@@ -68,4 +68,26 @@ Cette méthode de divisions successives permet de décomposer une grande valeur 
     code: "L'algorithme convertit un nombre de secondes en jours, heures, minutes et secondes en utilisant les opérations de division et de modulo.",
     imagePath: "level1/flowgorithm-level1-exo05.svg",
   },
+  exo06: {
+    problemId: "exo06",
+    explanation: `Ce diagramme illustre les différentes opérations logiques et de comparaison :
+
+1. Les variables peuvent être de différents types :
+   - Numériques (A, B, E) pour stocker des nombres
+   - Booléennes (C, D) pour stocker VRAI ou FAUX
+
+2. Les opérateurs de comparaison :
+   - Égalité (=) : vérifie si deux valeurs sont identiques
+   - Plus grand que (>) : compare deux nombres
+   - Plus petit que (<) : compare deux nombres
+
+3. Les opérateurs logiques :
+   - NON : inverse un booléen (VRAI devient FAUX et inversement)
+   - ET : VRAI seulement si les deux conditions sont VRAIES
+   - OU : VRAI si au moins une condition est VRAIE
+
+Chaque résultat est expliqué pas à pas pour comprendre la logique.`,
+    code: "L'algorithme évalue différentes expressions logiques et affiche leurs résultats.",
+    imagePath: "level1/flowgorithm-level1-exo06.svg",
+  },
 };
