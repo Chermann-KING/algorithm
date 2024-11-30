@@ -1,6 +1,8 @@
 import { JavaScriptSolution, FlowgorithmSolution } from "./types";
 import { level1Solutions as jsLevel1 } from "./javascript/level1Solutions";
+import { level2Solutions as jsLevel2 } from "./javascript/level2Solutions";
 import { level1Solutions as flowLevel1 } from "./flowgorithm/level1Solutions";
+import { level2Solutions as flowLevel2 } from "./flowgorithm/level2Solutions";
 import { problems } from "@/lib/problems/problemsData";
 
 /** Type définissant la structure des solutions par niveau */
@@ -9,12 +11,14 @@ type SolutionsMap<T> = Record<number, Record<string, T>>;
 /** Solutions JavaScript disponibles, indexées par niveau */
 const javascriptSolutions: SolutionsMap<JavaScriptSolution> = {
   1: jsLevel1,
+  2: jsLevel2,
   // Autres niveaux à ajouter
 };
 
 /** Solutions Flowgorithm disponibles, indexées par niveau */
 const flowgorithmSolutions: SolutionsMap<FlowgorithmSolution> = {
   1: flowLevel1,
+  2: flowLevel2,
   // Autres niveaux à ajouter
 };
 
