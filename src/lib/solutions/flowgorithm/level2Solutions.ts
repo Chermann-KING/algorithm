@@ -76,4 +76,24 @@ Cette logique permet d'avoir des années bissextiles tous les 4 ans, sauf les an
     code: "L'algorithme simule une calculatrice simple avec gestion des erreurs.",
     imagePath: "level2/flowgorithm-level2-exo10.svg",
   },
+  exo11: {
+    problemId: "exo11",
+    explanation: `Ce diagramme montre la conversion d'une note en appréciation textuelle :
+
+1. Validation de la note :
+   - Vérification que la note est entre 0 et 20
+   - Message d'erreur si la note est invalide
+
+2. Système d'appréciation :
+   - Excellent : 18-20
+   - Très Bien : 16-17
+   - Bien : 14-15
+   - Satisfaisant : 12-13
+   - Suffisant : 10-11
+   - Insuffisant : < 10
+
+3. Les conditions sont vérifiées dans l'ordre décroissant pour plus d'efficacité`,
+    code: "L'algorithme convertit une note numérique en appréciation textuelle.",
+    imagePath: "level2/flowgorithm-level2-exo11.svg",
+  },
 };

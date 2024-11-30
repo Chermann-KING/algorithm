@@ -221,4 +221,58 @@ console.log(calculer("/")); // Test avec nombre2 = 0 pour la division`,
       },
     ],
   },
+  exo11: {
+    problemId: "exo11",
+    explanation:
+      "Cette solution convertit une note sur 20 en une appréciation textuelle en utilisant une série de conditions.",
+    code: `// Fonction de conversion note -> appréciation
+function convertirNote(note) {
+  // Vérification de la validité de la note
+  if (note < 0 || note > 20) {
+    return "Note invalide ! La note doit être entre 0 et 20";
+  }
+
+  // Conversion en appréciation
+  if (note >= 18) {
+    return "Excellent !";
+  } else if (note >= 16) {
+    return "Très Bien !";
+  } else if (note >= 14) {
+    return "Bien !";
+  } else if (note >= 12) {
+    return "Satisfaisant !";
+  } else if (note >= 10) {
+    return "Suffisant !";
+  } else {
+    return "Insuffisant !";
+  }
+}
+
+// Tests avec différentes notes
+console.log("=== Tests du système de notes ===");
+const notes = [20, 17, 15, 13, 11, 8, -1, 25];
+
+notes.forEach(note => {
+  console.log("Note : " + note + "/20");
+  console.log("Appréciation : " + convertirNote(note));
+  console.log("---");
+});`,
+    testCases: [
+      {
+        input: [19],
+        expected: "Excellent !",
+        description: "Test note excellente",
+      },
+      {
+        input: [8],
+        expected: "Insuffisant !",
+        description: "Test note insuffisante",
+      },
+      {
+        input: [25],
+        expected: "Note invalide !",
+        description: "Test note invalide",
+      },
+    ],
+  },
 };
