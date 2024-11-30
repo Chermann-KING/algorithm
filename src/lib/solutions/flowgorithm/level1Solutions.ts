@@ -35,4 +35,19 @@ export const level1Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme utilise une variable temporaire pour échanger les valeurs de deux variables.",
     imagePath: "level1/flowgorithm-level1-exo03.svg",
   },
+  exo04: {
+    problemId: "exo04",
+    explanation: `Ce diagramme illustre l'inversion de deux chaînes de caractères :
+
+1. Il démontre que la technique de la variable temporaire fonctionne aussi avec du texte
+2. Les variables de type chaîne peuvent contenir n'importe quel texte (mots, phrases, etc.)
+3. Le processus d'inversion est le même que pour les nombres :
+   - On sauvegarde temporairement la première valeur
+   - On écrase la première valeur par la seconde
+   - On récupère la valeur sauvegardée pour l'assigner à la seconde variable
+
+Cette technique universelle d'inversion fonctionne pour tous les types de données.`,
+    code: "L'algorithme utilise une variable temporaire pour échanger le contenu de deux variables textuelles.",
+    imagePath: "level1/flowgorithm-level1-exo04.svg",
+  },
 };

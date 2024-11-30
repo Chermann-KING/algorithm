@@ -120,4 +120,34 @@ console.log("nb2 contient :", nb2);`,
       },
     ],
   },
+  exo04: {
+    problemId: "exo04",
+    explanation:
+      "Cette solution montre que la technique d'inversion avec variable temporaire s'applique aussi aux chaînes de caractères. C'est un concept universel en programmation qui fonctionne quel que soit le type de données.",
+    code: `// Déclaration et initialisation des chaînes
+let mot1 = "Bonjour";
+let mot2 = "Hello";
+
+// Affichage de l'état initial
+console.log("Avant inversion :");
+console.log("La variable mot1 contient :", mot1);
+console.log("La variable mot2 contient :", mot2);
+
+// Processus d'inversion avec variable temporaire
+let temp = mot1;    // Sauvegarde de la première chaîne
+mot1 = mot2;        // Remplacement par la seconde chaîne
+mot2 = temp;        // Transfert de la chaîne sauvegardée
+
+// Affichage du résultat
+console.log("\\nAprès inversion :");
+console.log("La variable mot1 contient :", mot1);
+console.log("La variable mot2 contient :", mot2);`,
+    testCases: [
+      {
+        input: [],
+        expected: "Les chaînes ont été inversées",
+        description: "Vérification de l'inversion des chaînes de caractères",
+      },
+    ],
+  },
 };
