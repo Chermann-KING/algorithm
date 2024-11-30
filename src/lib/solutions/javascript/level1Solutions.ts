@@ -150,4 +150,42 @@ console.log("La variable mot2 contient :", mot2);`,
       },
     ],
   },
+  exo05: {
+    problemId: "exo05",
+    explanation:
+      "Cette solution montre comment convertir des secondes en utilisant les opérations de division (/) et modulo (%). La division donne le nombre d'unités, le modulo donne le reste à convertir.",
+    code: `// Nombre de secondes à convertir
+const secondesInitiales = 90061;
+
+// Constantes de conversion
+const SECONDES_PAR_MINUTE = 60;
+const SECONDES_PAR_HEURE = SECONDES_PAR_MINUTE * 60;     // 3600
+const SECONDES_PAR_JOUR = SECONDES_PAR_HEURE * 24;       // 86400
+
+// Calcul des jours
+const jours = Math.floor(secondesInitiales / SECONDES_PAR_JOUR);
+let reste = secondesInitiales % SECONDES_PAR_JOUR;
+
+// Calcul des heures
+const heures = Math.floor(reste / SECONDES_PAR_HEURE);
+reste = reste % SECONDES_PAR_HEURE;
+
+// Calcul des minutes
+const minutes = Math.floor(reste / SECONDES_PAR_MINUTE);
+const secondes = reste % SECONDES_PAR_MINUTE;
+
+// Affichage des résultats
+console.log(\`\${secondesInitiales} secondes équivalent à :\`);
+console.log(\`\${jours} jour(s)\`);
+console.log(\`\${heures} heure(s)\`);
+console.log(\`\${minutes} minute(s)\`);
+console.log(\`\${secondes} seconde(s)\`);`,
+    testCases: [
+      {
+        input: [90061],
+        expected: "1j 1h 1m 1s",
+        description: "Test avec 90061 secondes",
+      },
+    ],
+  },
 };

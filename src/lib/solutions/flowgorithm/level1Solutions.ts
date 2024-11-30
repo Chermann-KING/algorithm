@@ -50,4 +50,22 @@ Cette technique universelle d'inversion fonctionne pour tous les types de donné
     code: "L'algorithme utilise une variable temporaire pour échanger le contenu de deux variables textuelles.",
     imagePath: "level1/flowgorithm-level1-exo04.svg",
   },
+  exo05: {
+    problemId: "exo05",
+    explanation: `Ce diagramme illustre la conversion d'une durée en secondes vers un format jours/heures/minutes/secondes :
+
+1. On commence par comprendre les équivalences de base :
+   - Une minute = 60 secondes
+   - Une heure = 60 minutes × 60 secondes = 3600 secondes
+   - Un jour = 24 heures × 3600 secondes = 86400 secondes
+
+2. La conversion se fait étape par étape :
+   - Division pour obtenir la partie entière (nombre d'unités)
+   - Modulo pour obtenir le reste (secondes restantes)
+   - On répète le processus avec le reste pour chaque unité
+
+Cette méthode de divisions successives permet de décomposer une grande valeur en unités plus lisibles.`,
+    code: "L'algorithme convertit un nombre de secondes en jours, heures, minutes et secondes en utilisant les opérations de division et de modulo.",
+    imagePath: "level1/flowgorithm-level1-exo05.svg",
+  },
 };
