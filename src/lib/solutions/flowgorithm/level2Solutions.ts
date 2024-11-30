@@ -57,4 +57,23 @@ Cette logique permet d'avoir des années bissextiles tous les 4 ans, sauf les an
     code: "L'algorithme simule un distributeur de boissons avec gestion de stock et interface utilisateur.",
     imagePath: "level2/flowgorithm-level2-exo09.svg",
   },
+  exo10: {
+    problemId: "exo10",
+    explanation: `Ce diagramme montre le fonctionnement d'une calculatrice simple :
+
+1. Étapes principales :
+   - Saisie des deux nombres à calculer
+   - Choix de l'opération parmi les 4 disponibles
+   - Vérification spéciale pour la division
+   - Calcul et affichage du résultat
+
+2. Gestion des erreurs :
+   - Vérification de la division par zéro
+   - Retour au menu en cas d'erreur
+   - Messages clairs pour l'utilisateur
+
+3. Chaque opération est clairement identifiée avec son symbole correspondant`,
+    code: "L'algorithme simule une calculatrice simple avec gestion des erreurs.",
+    imagePath: "level2/flowgorithm-level2-exo10.svg",
+  },
 };

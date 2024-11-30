@@ -164,4 +164,61 @@ afficherMenu();`,
       },
     ],
   },
+  exo10: {
+    problemId: "exo10",
+    explanation:
+      "Cette solution implémente une calculatrice basique qui gère les quatre opérations fondamentales et protège contre la division par zéro.",
+    code: `// Les deux nombres à calculer
+const nombre1 = 10;
+const nombre2 = 5;
+
+// Fonction de calcul
+function calculer(operation) {
+  console.log("\\nCalcul : " + nombre1 + " " + operation + " " + nombre2);
+
+  let resultat;
+  
+  switch(operation) {
+    case "+":
+      resultat = nombre1 + nombre2;
+      break;
+    case "-":
+      resultat = nombre1 - nombre2;
+      break;
+    case "*":
+      resultat = nombre1 * nombre2;
+      break;
+    case "/":
+      if (nombre2 === 0) {
+        return "Erreur : Division par zéro impossible";
+      }
+      resultat = nombre1 / nombre2;
+      break;
+    default:
+      return "Opération non reconnue";
+  }
+
+  return "Résultat = " + resultat;
+}
+
+// Tests des différentes opérations
+console.log("=== Tests de la calculatrice ===");
+console.log(calculer("+"));  // Addition
+console.log(calculer("-"));  // Soustraction
+console.log(calculer("*"));  // Multiplication
+console.log(calculer("/")); // Division
+console.log(calculer("/")); // Test avec nombre2 = 0 pour la division`,
+    testCases: [
+      {
+        input: ["+"],
+        expected: 15,
+        description: "Test addition",
+      },
+      {
+        input: ["*"],
+        expected: 50,
+        description: "Test multiplication",
+      },
+    ],
+  },
 };
