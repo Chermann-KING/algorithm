@@ -24,4 +24,26 @@ export const level3Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme utilise une boucle pour générer la table de multiplication de 2.",
     imagePath: "level3/flowgorithm-level3-exo13.svg",
   },
+  exo14: {
+    problemId: "exo14",
+    explanation: `Ce diagramme montre l'évolution du lanceur de balles avec comptage :
+
+1. Initialisation :
+   - On définit le stock total de balles
+   - On prépare un compteur de balles lancées
+   - Le lanceur est mis en état prêt
+
+2. Boucle de lancement :
+   - À chaque tour, on vérifie s'il reste des balles
+   - Le stock diminue à chaque lancer
+   - Le compteur de balles lancées augmente
+
+3. Affichages :
+   - Message à chaque lancer avec état du stock
+   - Message final quand le stock est épuisé
+
+Cette version avancée permet de suivre l'utilisation du lanceur.`,
+    code: "L'algorithme utilise une boucle pour gérer les lancers successifs jusqu'à épuisement du stock.",
+    imagePath: "level3/flowgorithm-level3-exo14.svg",
+  },
 };
