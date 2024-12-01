@@ -275,4 +275,87 @@ notes.forEach(note => {
       },
     ],
   },
+  exo12: {
+    problemId: "exo12",
+    explanation:
+      "Cette solution montre comment calculer une différence entre deux durées en passant par une conversion en secondes pour simplifier les calculs.",
+    code: `// Première durée
+const temps1 = {
+  jours: 1,
+  heures: 12,
+  minutes: 30,
+  secondes: 45
+};
+
+// Deuxième durée
+const temps2 = {
+  jours: 0,
+  heures: 8,
+  minutes: 45,
+  secondes: 20
+};
+
+// Fonction de conversion en secondes
+function convertirEnSecondes(temps) {
+  return temps.secondes +
+         temps.minutes * 60 +
+         temps.heures * 3600 +
+         temps.jours * 86400;
+}
+
+// Fonction de conversion des secondes en durée
+function convertirSecondesEnDuree(totalSecondes) {
+  const duree = {
+    jours: Math.floor(totalSecondes / 86400),
+    heures: 0,
+    minutes: 0,
+    secondes: 0
+  };
+  
+  let reste = totalSecondes % 86400;
+  duree.heures = Math.floor(reste / 3600);
+  
+  reste = reste % 3600;
+  duree.minutes = Math.floor(reste / 60);
+  
+  duree.secondes = reste % 60;
+  
+  return duree;
+}
+
+// Calcul de la différence
+console.log("Première durée :");
+console.log("Jours :", temps1.jours);
+console.log("Heures :", temps1.heures);
+console.log("Minutes :", temps1.minutes);
+console.log("Secondes :", temps1.secondes);
+
+console.log("\\nDeuxième durée :");
+console.log("Jours :", temps2.jours);
+console.log("Heures :", temps2.heures);
+console.log("Minutes :", temps2.minutes);
+console.log("Secondes :", temps2.secondes);
+
+const secondes1 = convertirEnSecondes(temps1);
+const secondes2 = convertirEnSecondes(temps2);
+const difference = secondes1 - secondes2;
+
+const resultat = convertirSecondesEnDuree(difference);
+
+console.log("\\nDifférence :");
+console.log(resultat.jours + " jour(s)");
+console.log(resultat.heures + " heure(s)");
+console.log(resultat.minutes + " minute(s)");
+console.log(resultat.secondes + " seconde(s)");`,
+    testCases: [
+      {
+        input: [
+          { jours: 1, heures: 12, minutes: 30, secondes: 45 },
+          { jours: 0, heures: 8, minutes: 45, secondes: 20 },
+        ],
+        expected: "1j 3h 45m 25s",
+        description: "Test avec les durées de l'exemple",
+      },
+    ],
+  },
 };
