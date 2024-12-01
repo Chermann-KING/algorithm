@@ -96,4 +96,38 @@ Cette logique permet d'avoir des années bissextiles tous les 4 ans, sauf les an
     code: "L'algorithme convertit une note numérique en appréciation textuelle.",
     imagePath: "level2/flowgorithm-level2-exo11.svg",
   },
+  exo12: {
+    problemId: "exo12",
+    explanation: `Ce diagramme montre comment calculer une différence entre deux durées :
+
+1. ÉTAPE 1 - Saisie de la première durée :
+   - On décompose le temps en unités : jours, heures, minutes, secondes
+   - Chaque unité a son importance pour le calcul final
+   - Exemple : 1j 12h 30m 45s
+
+2. ÉTAPE 2 - Saisie de la deuxième durée :
+   - Même décomposition que la première durée
+   - Ces valeurs seront soustraites de la première durée
+   - Exemple : 0j 8h 45m 20s
+
+3. ÉTAPE 3 - Conversion de la première durée en secondes :
+   - Pour pouvoir comparer, on doit tout convertir en une seule unité
+   - 1 jour = 24h = 1440min = 86400s
+   - 1 heure = 60min = 3600s
+   - 1 minute = 60s
+   - On additionne toutes les conversions
+
+4. ÉTAPE 4 - Conversion de la deuxième durée :
+   - Même processus de conversion que l'étape 3
+   - Chaque unité est convertie en secondes
+   - On obtient un total en secondes
+
+5. ÉTAPE 5 - Calcul de la différence :
+   - On soustrait les deux totaux en secondes
+   - Ce résultat sera plus facile à reconvertir
+
+Le résultat final est reconverti du total de secondes vers un format lisible en jours, heures, minutes et secondes.`,
+    code: "L'algorithme convertit des durées en secondes pour faciliter la comparaison, puis reconvertit le résultat en format lisible.",
+    imagePath: "level2/flowgorithm-level2-exo12.svg",
+  },
 };
