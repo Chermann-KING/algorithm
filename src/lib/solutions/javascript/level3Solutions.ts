@@ -68,4 +68,35 @@ console.log("Veuillez recharger le lanceur");`,
       },
     ],
   },
+  exo15: {
+    problemId: "exo15",
+    explanation:
+      "Cette solution utilise des boucles imbriquées pour générer toutes les tables de multiplication de manière organisée et lisible.",
+    code: `// Limites des tables
+const tableMin = 1;
+const tableMax = 9;
+
+// Boucle pour chaque table
+for (let table = tableMin; table <= tableMax; table++) {
+    // En-tête de la table
+    console.log("\\nTable de " + table + " :");
+    console.log("================");
+    
+    // Boucle pour les multiplications
+    for (let multiplicateur = 0; multiplicateur <= 10; multiplicateur++) {
+        // Calcul et affichage
+        const resultat = table * multiplicateur;
+        console.log(table + " × " + multiplicateur + " = " + resultat);
+    }
+    
+    console.log("================");
+}`,
+    testCases: [
+      {
+        input: [],
+        expected: "Tables de 1 à 9 complètes",
+        description: "Vérification de toutes les tables",
+      },
+    ],
+  },
 };

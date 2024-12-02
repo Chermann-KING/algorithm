@@ -46,4 +46,25 @@ Cette version avancée permet de suivre l'utilisation du lanceur.`,
     code: "L'algorithme utilise une boucle pour gérer les lancers successifs jusqu'à épuisement du stock.",
     imagePath: "level3/flowgorithm-level3-exo14.svg",
   },
+  exo15: {
+    problemId: "exo15",
+    explanation: `Ce diagramme illustre le principe des boucles imbriquées :
+
+1. Boucle Externe (Tables) :
+   - Contrôle quelle table on calcule (1 à 9)
+   - Gère l'affichage des titres
+   - Passe à la table suivante
+
+2. Boucle Interne (Multiplications) :
+   - Calcule chaque multiplication (0 à 10)
+   - Affiche le résultat
+   - Continue jusqu'à 10 avant de revenir à la boucle externe
+
+3. Les avantages des boucles imbriquées :
+   - Permet de faire des calculs systématiques
+   - Évite la répétition de code
+   - Structure claire et organisée`,
+    code: "L'algorithme utilise des boucles imbriquées pour générer toutes les tables de multiplication.",
+    imagePath: "level3/flowgorithm-level3-exo15.svg",
+  },
 };
