@@ -247,4 +247,78 @@ while (continuerService) {
       },
     ],
   },
+  exo18: {
+    problemId: "exo18",
+    explanation:
+      "Cette solution implémente une calculatrice interactive permettant d'effectuer des calculs en continu avec gestion des erreurs et option de sortie.",
+    code: `// Fonction de calcul
+function calculer(a, operateur, b) {
+    switch(operateur) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/': 
+            if (b === 0) throw new Error("Division par zéro impossible");
+            return a / b;
+        default:
+            throw new Error("Opérateur non valide");
+    }
+}
+
+// Fonction de validation de l'opérateur
+function estOperateurValide(operateur) {
+    return ['+', '-', '*', '/'].includes(operateur);
+}
+
+// Initialisation
+let continuer = true;
+console.log("=== Calculatrice Interactive ===");
+
+// Boucle principale
+while (continuer) {
+    try {
+        // Saisie des valeurs
+        const nombre1 = parseFloat(prompt("Premier nombre :"));
+        if (isNaN(nombre1)) throw new Error("Nombre invalide");
+        
+        const operateur = prompt("Opérateur (+, -, *, /) :");
+        if (!estOperateurValide(operateur)) throw new Error("Opérateur invalide");
+        
+        const nombre2 = parseFloat(prompt("Deuxième nombre :"));
+        if (isNaN(nombre2)) throw new Error("Nombre invalide");
+        
+        // Calcul et affichage
+        const resultat = calculer(nombre1, operateur, nombre2);
+        console.log("\\nOpération:", nombre1, operateur, nombre2);
+        console.log("Résultat :", resultat);
+        
+    } catch (erreur) {
+        console.log("\\nErreur :", erreur.message);
+        continue;
+    }
+    
+    // Demande de continuation
+    const reponse = prompt("\\nVoulez-vous faire un autre calcul ? (oui/non) :");
+    continuer = reponse.toLowerCase() === 'oui';
+}
+
+console.log("\\nMerci d'avoir utilisé la calculatrice !");`,
+    testCases: [
+      {
+        input: ["5", "+", "3", "non"],
+        expected: "8",
+        description: "Addition simple puis sortie",
+      },
+      {
+        input: ["10", "/", "0"],
+        expected: "Division par zéro impossible",
+        description: "Test de la division par zéro",
+      },
+      {
+        input: ["4", "*", "3", "oui", "15", "-", "7", "non"],
+        expected: "12 puis 8",
+        description: "Test de plusieurs calculs successifs",
+      },
+    ],
+  },
 };

@@ -114,4 +114,30 @@ Cette version avancée permet de suivre l'utilisation du lanceur.`,
     code: "L'algorithme utilise une boucle principale pour servir plusieurs clients successivement.",
     imagePath: "level3/flowgorithm-level3-exo17.svg",
   },
+  exo18: {
+    problemId: "exo18",
+    explanation: `Ce diagramme illustre une calculatrice en mode continu :
+
+1. Structure Principale :
+   - Initialisation du mode continu
+   - Boucle principale pour les calculs successifs
+   - Système de sortie contrôlée
+
+2. Saisies et Validation :
+   - Collecte des opérandes et opérateurs
+   - Vérification de validité des opérateurs
+   - Détection des cas spéciaux (division par zéro)
+
+3. Traitement :
+   - Exécution des opérations mathématiques
+   - Affichage immédiat des résultats
+   - Gestion des erreurs en temps réel
+
+4. Mode Interactif :
+   - Option de continuer après chaque calcul
+   - Interface utilisateur guidée
+   - Messages clairs à chaque étape`,
+    code: "L'algorithme permet d'effectuer plusieurs calculs successifs avec une gestion complète des erreurs.",
+    imagePath: "level3/flowgorithm-level3-exo18.svg",
+  },
 };
