@@ -148,4 +148,103 @@ faireProposition(42);  // Trouvé !`,
       },
     ],
   },
+  exo17: {
+    problemId: "exo17",
+    explanation:
+      "Cette solution implémente un distributeur de boissons interactif qui peut servir plusieurs clients successivement, avec gestion de stock et option de quitter.",
+    code: `// Initialisation des stocks
+let stockBoissons = {
+    coca: 5,
+    fanta: 5,
+    eau: 5
+};
+
+// État du distributeur
+let continuerService = true;
+
+// Fonction d'affichage du menu
+function afficherMenu() {
+    console.log("\\n=== DISTRIBUTEUR DE BOISSONS ===");
+    console.log("1. Coca Cola (Stock:", stockBoissons.coca, ")");
+    console.log("2. Fanta    (Stock:", stockBoissons.fanta, ")");
+    console.log("3. Eau      (Stock:", stockBoissons.eau, ")");
+    console.log("4. Quitter");
+    console.log("==============================\\n");
+}
+
+// Fonction de distribution
+function distribuerBoisson(choix) {
+    let boisson;
+    switch(choix) {
+        case 1:
+            if (stockBoissons.coca > 0) {
+                stockBoissons.coca--;
+                boisson = "Coca Cola";
+                return true;
+            }
+            break;
+        case 2:
+            if (stockBoissons.fanta > 0) {
+                stockBoissons.fanta--;
+                boisson = "Fanta";
+                return true;
+            }
+            break;
+        case 3:
+            if (stockBoissons.eau > 0) {
+                stockBoissons.eau--;
+                boisson = "Eau";
+                return true;
+            }
+            break;
+    }
+    return false;
+}
+
+// Simulation du distributeur
+while (continuerService) {
+    afficherMenu();
+    const choix = parseInt(prompt("Votre choix : "));
+    
+    if (choix === 4) {
+        console.log("\\nMerci de votre visite ! Au revoir !");
+        continuerService = false;
+        continue;
+    }
+    
+    if (choix < 1 || choix > 3) {
+        console.log("\\nChoix invalide ! Veuillez réessayer.");
+        continue;
+    }
+    
+    if (distribuerBoisson(choix)) {
+        console.log("\\nVoici votre boisson ! Bonne dégustation !");
+    } else {
+        console.log("\\nDésolé, cette boisson n'est plus disponible.");
+    }
+    
+    const reponse = prompt("\\nSouhaitez-vous commander une autre boisson ? (oui/non) : ");
+    if (reponse.toLowerCase() !== "oui") {
+        console.log("\\nMerci de votre visite ! Au revoir !");
+        continuerService = false;
+    }
+}`,
+    testCases: [
+      {
+        input: [1, "oui", 2, "non"],
+        expected: "Distribution de Coca puis Fanta, puis arrêt",
+        description: "Test de distribution multiple avec arrêt",
+      },
+      {
+        input: [4],
+        expected: "Sortie immédiate",
+        description: "Test de l'option quitter",
+      },
+      {
+        input: [1, "oui", 1, "oui", 1, "oui", 1, "oui", 1, "oui", 1],
+        expected: "Rupture de stock Coca",
+        description: "Test de la gestion des stocks",
+      },
+    ],
+  },
 };

@@ -88,4 +88,30 @@ Cette version avancée permet de suivre l'utilisation du lanceur.`,
     code: "L'algorithme guide le joueur vers le nombre secret avec des indices.",
     imagePath: "level3/flowgorithm-level3-exo16.svg",
   },
+  exo17: {
+    problemId: "exo17",
+    explanation: `Ce diagramme illustre un distributeur de boissons en boucle :
+
+1. Initialisation :
+   - Configuration des stocks pour chaque boisson
+   - Mise en place d'une structure de menu répétitive
+   - Gestion de l'état 'continuer' pour le service
+
+2. Menu et Sélection :
+   - Affichage clair des choix disponibles
+   - Validation des entrées utilisateur
+   - Option de sortie explicite
+
+3. Gestion des Stocks :
+   - Vérification de la disponibilité avant distribution
+   - Mise à jour automatique après chaque service
+   - Messages d'erreur si rupture de stock
+
+4. Boucle de Service :
+   - Possibilité de servir plusieurs clients
+   - Option de continuer ou terminer après chaque service
+   - Gestion propre de la fin du programme`,
+    code: "L'algorithme utilise une boucle principale pour servir plusieurs clients successivement.",
+    imagePath: "level3/flowgorithm-level3-exo17.svg",
+  },
 };
