@@ -99,4 +99,53 @@ for (let table = tableMin; table <= tableMax; table++) {
       },
     ],
   },
+  exo16: {
+    problemId: "exo16",
+    explanation:
+      "Cette solution simule un jeu du Plus ou Moins où le joueur doit deviner un nombre avec des indices.",
+    code: `// Configuration initiale
+const nombreSecret = 42;  // À remplacer par un nombre aléatoire
+let nombreEssais = 0;
+let trouve = false;
+
+// Affichage des règles
+console.log("=== Jeu du Plus ou Moins ===");
+console.log("Devinez le nombre entre 1 et 100");
+
+// Simulation de quelques essais
+function faireProposition(proposition) {
+    nombreEssais++;
+    
+    console.log("\\nProposition:", proposition);
+    console.log("Essai numéro:", nombreEssais);
+    
+    if (proposition === nombreSecret) {
+        console.log("Bravo ! Nombre trouvé en", nombreEssais, "essais !");
+        return true;
+    } else if (proposition > nombreSecret) {
+        console.log("C'est plus petit !");
+    } else {
+        console.log("C'est plus grand !");
+    }
+    return false;
+}
+
+// Test du jeu avec quelques propositions
+console.log("\\n--- Début de la partie ---");
+faireProposition(50);  // Trop grand
+faireProposition(25);  // Trop petit
+faireProposition(42);  // Trouvé !`,
+    testCases: [
+      {
+        input: [50],
+        expected: "C'est plus petit !",
+        description: "Test proposition trop grande",
+      },
+      {
+        input: [42],
+        expected: "Bravo !",
+        description: "Test nombre trouvé",
+      },
+    ],
+  },
 };

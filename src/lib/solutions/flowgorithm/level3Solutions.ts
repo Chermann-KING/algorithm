@@ -67,4 +67,25 @@ Cette version avancée permet de suivre l'utilisation du lanceur.`,
     code: "L'algorithme utilise des boucles imbriquées pour générer toutes les tables de multiplication.",
     imagePath: "level3/flowgorithm-level3-exo15.svg",
   },
+  exo16: {
+    problemId: "exo16",
+    explanation: `Ce diagramme montre la logique d'un jeu de devinette :
+
+1. Configuration :
+   - Un nombre secret est défini
+   - Un compteur d'essais est initialisé
+   - Des messages guident le joueur
+
+2. Boucle de jeu :
+   - Le joueur fait une proposition
+   - Le jeu compte les essais
+   - Le programme compare et donne un indice
+
+3. Feedback intelligent :
+   - "Plus grand" si la proposition est trop petite
+   - "Plus petit" si la proposition est trop grande
+   - Message de victoire avec nombre d'essais`,
+    code: "L'algorithme guide le joueur vers le nombre secret avec des indices.",
+    imagePath: "level3/flowgorithm-level3-exo16.svg",
+  },
 };
