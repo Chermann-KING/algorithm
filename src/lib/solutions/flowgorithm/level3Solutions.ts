@@ -140,4 +140,30 @@ Cette version avancée permet de suivre l'utilisation du lanceur.`,
     code: "L'algorithme permet d'effectuer plusieurs calculs successifs avec une gestion complète des erreurs.",
     imagePath: "level3/flowgorithm-level3-exo18.svg",
   },
+  exo19: {
+    problemId: "exo19",
+    explanation: `Ce diagramme montre le calcul d'une puissance 10e :
+
+1. Saisie et Initialisation :
+   - Entrée du nombre N par l'utilisateur
+   - Initialisation du résultat à 1
+   - Initialisation du compteur à 0
+
+2. Boucle de Multiplication :
+   - Vérification : compteur < 10
+   - Multiplication : résultat = résultat × N
+   - Incrémentation : compteur + 1
+   - Répétition jusqu'à 10 multiplications
+
+3. Avantages de la Méthode :
+   - Calcul pas à pas et clair
+   - Utilisation d'une boucle plutôt que 10 multiplications
+   - Suivi facile de la progression
+
+4. Affichage :
+   - Présentation claire du résultat final
+   - Format : N^10 = résultat`,
+    code: "L'algorithme utilise une boucle pour multiplier N par lui-même 10 fois.",
+    imagePath: "level3/flowgorithm-level3-exo19.svg",
+  },
 };

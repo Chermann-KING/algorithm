@@ -321,4 +321,62 @@ console.log("\\nMerci d'avoir utilisé la calculatrice !");`,
       },
     ],
   },
+  exo19: {
+    problemId: "exo19",
+    explanation:
+      "Cette solution calcule la puissance 10 d'un nombre en utilisant une boucle plutôt que l'opérateur de puissance pour illustrer le processus itératif.",
+    code: `// Fonction pour calculer N^10
+function calculerPuissance10(N) {
+    // Initialisation du résultat
+    let resultat = 1;
+    
+    // Affichage du calcul en cours
+    console.log("=== Calcul de " + N + "^10 ===");
+    
+    // Boucle de multiplication (10 fois)
+    for (let compteur = 0; compteur < 10; compteur++) {
+        // Mise à jour du résultat
+        resultat = resultat * N;
+        
+        // Affichage de l'étape en cours
+        console.log("Étape", (compteur + 1), ":", resultat);
+    }
+    
+    // Affichage du résultat final
+    console.log("\\nRésultat final :");
+    console.log(N + "^10 =", resultat);
+    
+    return resultat;
+}
+
+// Exemple d'utilisation
+const nombre = parseFloat(prompt("Entrez un nombre :"));
+if (!isNaN(nombre)) {
+    calculerPuissance10(nombre);
+} else {
+    console.log("Veuillez entrer un nombre valide.");
+}`,
+    testCases: [
+      {
+        input: [2],
+        expected: 1024,
+        description: "Test avec le nombre 2 (2^10 = 1024)",
+      },
+      {
+        input: [0],
+        expected: 0,
+        description: "Test avec zéro (0^10 = 0)",
+      },
+      {
+        input: [1],
+        expected: 1,
+        description: "Test avec un (1^10 = 1)",
+      },
+      {
+        input: [-2],
+        expected: 1024,
+        description: "Test avec un nombre négatif (-2^10 = 1024)",
+      },
+    ],
+  },
 };
