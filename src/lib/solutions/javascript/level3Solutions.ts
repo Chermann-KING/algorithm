@@ -379,4 +379,48 @@ if (!isNaN(nombre)) {
       },
     ],
   },
+  exo20: {
+    problemId: "exo20",
+    explanation:
+      "Cette solution calcule la puissance d'un nombre avec un exposant variable.",
+    code: `function calculerPuissance(N, M) {
+    let resultat = 1;
+    
+    console.log(\`=== Calcul de \${N}^\${M} ===\n\`);
+    
+    for (let compteur = 0; compteur < M; compteur++) {
+        resultat *= N;
+        console.log(\`Étape \${compteur + 1}: \${resultat}\`);
+    }
+    
+    console.log(\`\nRésultat final : \${N}^\${M} = \${resultat}\`);
+    return resultat;
+}
+
+const nombre = parseFloat(prompt("Entrez un nombre :"));
+const exposant = parseInt(prompt("Entrez l'exposant :"));
+
+if (!isNaN(nombre) && !isNaN(exposant)) {
+    calculerPuissance(nombre, exposant);
+} else {
+    console.log("Veuillez entrer des nombres valides.");
+}`,
+    testCases: [
+      {
+        input: [2, 3],
+        expected: 8,
+        description: "2^3 = 8",
+      },
+      {
+        input: [5, 0],
+        expected: 1,
+        description: "Test avec exposant 0",
+      },
+      {
+        input: [3, 4],
+        expected: 81,
+        description: "3^4 = 81",
+      },
+    ],
+  },
 };

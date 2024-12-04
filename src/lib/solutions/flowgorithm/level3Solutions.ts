@@ -166,4 +166,22 @@ Cette version avancée permet de suivre l'utilisation du lanceur.`,
     code: "L'algorithme utilise une boucle pour multiplier N par lui-même 10 fois.",
     imagePath: "level3/flowgorithm-level3-exo19.svg",
   },
+  exo20: {
+    problemId: "exo20",
+    explanation: `Ce diagramme calcule N^M :
+
+1. Entrées : 
+   - Nombre N à élever en puissance
+   - Exposant M défini par l'utilisateur
+
+2. Processus :
+   - Résultat initialisé à 1
+   - Multiplication répétée M fois
+   - Incrémentation du compteur jusqu'à M
+
+3. Sortie :
+   - Affichage du résultat N^M`,
+    code: "L'algorithme utilise une boucle pour répéter la multiplication selon l'exposant saisi.",
+    imagePath: "level3/flowgorithm-level3-exo20.svg",
+  },
 };
