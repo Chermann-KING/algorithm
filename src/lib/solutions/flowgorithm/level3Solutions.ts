@@ -184,4 +184,14 @@ Cette version avancée permet de suivre l'utilisation du lanceur.`,
     code: "L'algorithme utilise une boucle pour répéter la multiplication selon l'exposant saisi.",
     imagePath: "level3/flowgorithm-level3-exo20.svg",
   },
+  exo21: {
+    problemId: "exo21",
+    explanation: `Version améliorée du Plus ou Moins :
+- Génération d'un nombre aléatoire
+- Limite de 10 tentatives
+- Compteur d'essais
+- Messages dynamiques selon la progression`,
+    code: "L'algorithme ajoute une limite d'essais et un compteur au jeu de base.",
+    imagePath: "level3/flowgorithm-level3-exo21.svg",
+  },
 };

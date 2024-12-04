@@ -423,4 +423,52 @@ if (!isNaN(nombre) && !isNaN(exposant)) {
       },
     ],
   },
+  exo21: {
+    problemId: "exo21",
+    explanation:
+      "Version évoluée du Plus ou Moins avec nombre aléatoire et limite d'essais.",
+    code: `function plusOuMoins() {
+   const nombreSecret = Math.floor(Math.random() * 100) + 1;
+   const MAX_ESSAIS = 10;
+   let essais = 0;
+   
+   console.log("=== Plus ou Moins ===");
+   console.log(\`Trouvez le nombre entre 1 et 100. Vous avez \${MAX_ESSAIS} essais.\n\`);
+   
+   while (essais < MAX_ESSAIS) {
+       essais++;
+       const proposition = parseInt(prompt(\`Essai n°\${essais} :\`));
+       
+       if (isNaN(proposition)) {
+           console.log("Veuillez entrer un nombre valide.");
+           essais--;
+           continue;
+       }
+       
+       if (proposition === nombreSecret) {
+           console.log(\`\nBravo ! Nombre trouvé en \${essais} essais.\`);
+           return true;
+       }
+       
+       console.log(\`C'est \${proposition > nombreSecret ? "moins" : "plus"} !\n\`);
+   }
+   
+   console.log(\`\nPerdu ! Le nombre était \${nombreSecret}.\`);
+   return false;
+}
+
+plusOuMoins();`,
+    testCases: [
+      {
+        input: [50, 75, 62, 56, 59, 60],
+        expected: "Trouvé en 6 essais",
+        description: "Victoire avant limite",
+      },
+      {
+        input: Array(10).fill(1),
+        expected: "Perdu après 10 essais",
+        description: "Défaite limite atteinte",
+      },
+    ],
+  },
 };
