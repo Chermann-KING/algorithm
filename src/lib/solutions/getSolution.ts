@@ -2,9 +2,11 @@ import { JavaScriptSolution, FlowgorithmSolution } from "./types";
 import { level1Solutions as jsLevel1 } from "./javascript/level1Solutions";
 import { level2Solutions as jsLevel2 } from "./javascript/level2Solutions";
 import { level3Solutions as jsLevel3 } from "./javascript/level3Solutions";
+import { level4Solutions as jsLevel4 } from "./javascript/level4Solutions";
 import { level1Solutions as flowLevel1 } from "./flowgorithm/level1Solutions";
 import { level2Solutions as flowLevel2 } from "./flowgorithm/level2Solutions";
 import { level3Solutions as flowLevel3 } from "./flowgorithm/level3Solutions";
+import { level4Solutions as flowLevel4 } from "./flowgorithm/level4Solutions";
 import { problems } from "@/lib/problems/problemsData";
 
 /** Type définissant la structure des solutions par niveau */
@@ -15,6 +17,7 @@ const javascriptSolutions: SolutionsMap<JavaScriptSolution> = {
   1: jsLevel1,
   2: jsLevel2,
   3: jsLevel3,
+  4: jsLevel4,
   // Autres niveaux à ajouter
 };
 
@@ -23,6 +26,7 @@ const flowgorithmSolutions: SolutionsMap<FlowgorithmSolution> = {
   1: flowLevel1,
   2: flowLevel2,
   3: flowLevel3,
+  4: flowLevel4,
   // Autres niveaux à ajouter
 };
 
