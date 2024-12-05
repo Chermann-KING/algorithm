@@ -306,4 +306,80 @@ trouverMinimum();`,
       },
     ],
   },
+  exo28: {
+    problemId: "exo28",
+    explanation:
+      "Cette solution implémente une recherche séquentielle dans un tableau.",
+    code: `function rechercherValeur() {
+   // Saisie de la taille
+   const taille = parseInt(prompt("Entrez la taille du tableau : "));
+   if (isNaN(taille) || taille <= 0) {
+       console.log("Taille invalide");
+       return;
+   }
+
+   // Création et remplissage du tableau
+   let tableau = new Array(taille);
+   console.log("\\n=== Saisie des éléments ===");
+   for (let i = 0; i < taille; i++) {
+       tableau[i] = parseInt(prompt(\`Élément n°\${i + 1} : \`));
+       if (isNaN(tableau[i])) {
+           console.log("Valeur invalide");
+           return;
+       }
+   }
+
+   // Affichage du tableau
+   console.log("\\n=== Contenu du tableau ===");
+   console.log(tableau.join(" - "));
+
+   // Valeur recherchée
+   const valeur = parseInt(prompt("\\nValeur à rechercher : "));
+   if (isNaN(valeur)) {
+       console.log("Valeur de recherche invalide");
+       return;
+   }
+
+   // Recherche
+   let trouve = false;
+   let position = -1;
+
+   for (let i = 0; i < taille; i++) {
+       if (tableau[i] === valeur) {
+           trouve = true;
+           position = i;
+           break;
+       }
+   }
+
+   // Affichage du résultat
+   console.log("\\n=== Résultat de la recherche ===");
+   if (trouve) {
+       console.log(\`La valeur \${valeur} a été trouvée à la position \${position + 1}\`);
+   } else {
+       console.log(\`La valeur \${valeur} n'est pas présente dans le tableau\`);
+   }
+
+   return { trouve, position: trouve ? position + 1 : -1 };
+}
+
+rechercherValeur();`,
+    testCases: [
+      {
+        input: [5, 1, 2, 3, 4, 5, 3],
+        expected: { trouve: true, position: 3 },
+        description: "Valeur présente",
+      },
+      {
+        input: [3, 1, 2, 3, 4],
+        expected: { trouve: false, position: -1 },
+        description: "Valeur absente",
+      },
+      {
+        input: [4, 5, 5, 5, 5, 5],
+        expected: { trouve: true, position: 1 },
+        description: "Première occurrence",
+      },
+    ],
+  },
 };

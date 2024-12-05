@@ -110,4 +110,24 @@ export const level4Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme trouve le plus petit élément et sa position.",
     imagePath: "level4/flowgorithm-level4-exo27.svg",
   },
+  exo28: {
+    problemId: "exo28",
+    explanation: `Ce diagramme implémente une recherche séquentielle :
+
+1. Préparation :
+  - Saisie taille dynamique du tableau
+  - Remplissage des valeurs
+  - Demande de la valeur à chercher
+
+2. Recherche :
+  - Parcours séquentiel du tableau
+  - Comparaison avec la valeur cherchée
+  - Mémorisation de la position si trouvée
+
+3. Résultat :
+  - Message si valeur trouvée avec sa position
+  - Message si valeur absente du tableau`,
+    code: "L'algorithme recherche une valeur et indique sa position.",
+    imagePath: "level4/flowgorithm-level4-exo28.svg",
+  },
 };
