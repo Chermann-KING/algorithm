@@ -61,4 +61,63 @@ console.log(puissances.join(" - "));`,
       },
     ],
   },
+  exo24: {
+    problemId: "exo24",
+    explanation:
+      "Cette solution permet de gérer un nombre variable de scores et de calculer leur moyenne.",
+    code: `function calculerMoyenneScores() {
+   // Demande du nombre de joueurs
+   const nbJoueurs = parseInt(prompt("Combien de joueurs ? "));
+   if (isNaN(nbJoueurs) || nbJoueurs <= 0) {
+       console.log("Nombre de joueurs invalide");
+       return;
+   }
+
+   // Initialisation
+   let scores = new Array(nbJoueurs);
+   let somme = 0;
+
+   console.log("\\n=== Saisie des scores ===");
+   
+   // Saisie des scores
+   for (let i = 0; i < nbJoueurs; i++) {
+       const score = parseFloat(prompt(\`Score du joueur \${i + 1} : \`));
+       if (isNaN(score)) {
+           console.log("Score invalide");
+           return;
+       }
+       scores[i] = score;
+       somme += score;
+   }
+
+   // Calcul de la moyenne
+   const moyenne = somme / nbJoueurs;
+
+   // Affichage des résultats
+   console.log("\\n=== Récapitulatif ===");
+   scores.forEach((score, index) => {
+       console.log(\`Joueur \${index + 1} : \${score}\`);
+   });
+   console.log(\`\\nMoyenne des scores : \${moyenne.toFixed(2)}\`);
+}
+
+calculerMoyenneScores();`,
+    testCases: [
+      {
+        input: [3, 15, 12, 18],
+        expected: 15,
+        description: "Moyenne de trois scores",
+      },
+      {
+        input: [2, 20, 20],
+        expected: 20,
+        description: "Scores identiques",
+      },
+      {
+        input: [4, 0, 20, 10, 10],
+        expected: 10,
+        description: "Scores avec valeurs extrêmes",
+      },
+    ],
+  },
 };

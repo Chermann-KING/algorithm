@@ -29,4 +29,24 @@ export const level4Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme génère les puissances de 2 dans un tableau.",
     imagePath: "level3/flowgorithm-level3-exo23.svg",
   },
+  exo24: {
+    problemId: "exo24",
+    explanation: `Ce diagramme calcule une moyenne dynamique :
+
+1. Initialisation :
+  - Demande du nombre de joueurs
+  - Création du tableau adapté
+  - Variables pour somme et moyenne
+
+2. Saisie et Calcul :
+  - Collecte des scores
+  - Accumulation dans la somme
+  - Calcul de la moyenne
+
+3. Affichage :
+  - Liste détaillée des scores
+  - Présentation de la moyenne finale`,
+    code: "L'algorithme gère un nombre variable de scores et calcule leur moyenne.",
+    imagePath: "level3/flowgorithm-level3-exo24.svg",
+  },
 };
