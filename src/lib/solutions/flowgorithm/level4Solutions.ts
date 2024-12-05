@@ -152,4 +152,25 @@ export const level4Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme permet de déplacer un pion dans un tableau.",
     imagePath: "level4/flowgorithm-level4-exo29.svg",
   },
+  exo30: {
+    problemId: "exo30",
+    explanation: `Ce diagramme implémente l'insertion ordonnée :
+
+1. Préparation :
+  - Saisie tableau initial trié
+  - Réservation d'une case supplémentaire
+  - Validation de l'ordre croissant
+
+2. Recherche Position :
+  - Parcours jusqu'à trouver la position
+  - Comparaison avec la valeur à insérer
+  - Arrêt au bon emplacement
+
+3. Insertion :
+  - Décalage des éléments
+  - Insertion à la position trouvée
+  - Maintien de l'ordre croissant`,
+    code: "L'algorithme insère une valeur en conservant le tri.",
+    imagePath: "level4/flowgorithm-level4-exo30.svg",
+  },
 };

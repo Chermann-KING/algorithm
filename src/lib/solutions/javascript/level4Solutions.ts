@@ -458,4 +458,90 @@ deplacerPion();`,
       },
     ],
   },
+  exo30: {
+    problemId: "exo30",
+    explanation:
+      "Cette solution permet d'insérer une valeur dans un tableau trié tout en maintenant l'ordre croissant.",
+    code: `function insertionTriee() {
+    // Saisie de la taille
+    let tailleTableau = parseInt(prompt("Entrez la taille initiale du tableau : ") || "0");
+    if (isNaN(tailleTableau) || tailleTableau <= 0) {
+        console.log("Taille invalide");
+        return [];
+    }
+
+    // Création et remplissage du tableau
+    let tableau = new Array(tailleTableau + 1); // +1 pour la future insertion
+    console.log("\\n=== Saisie des éléments triés ===");
+    
+    // Premier élément
+    const premierNombre = parseInt(prompt("Premier nombre : ") || "0");
+    if (isNaN(premierNombre)) {
+        console.log("Nombre invalide");
+        return [];
+    }
+    tableau[0] = premierNombre;
+
+    // Reste des éléments avec vérification du tri
+    for (let i = 1; i < tailleTableau; i++) {
+        const nombre = parseInt(prompt(\`Nombre suivant (\${i + 1}/\${tailleTableau}) : \`) || "0");
+        if (isNaN(nombre) || nombre < tableau[i-1]) {
+            console.log("Nombre invalide ou non trié");
+            return [];
+        }
+        tableau[i] = nombre;
+    }
+
+    // Affichage tableau initial
+    console.log("\\n=== Tableau initial ===");
+    console.log(tableau.slice(0, tailleTableau).join(" - "));
+
+    // Valeur à insérer
+    const valeur = parseInt(prompt("\\nValeur à insérer : ") || "0");
+    if (isNaN(valeur)) {
+        console.log("Valeur invalide");
+        return [];
+    }
+
+    // Recherche de la position d'insertion
+    let position = 0;
+    while (position < tailleTableau && tableau[position] < valeur) {
+        position++;
+    }
+
+    // Décalage des éléments
+    for (let j = tailleTableau; j > position; j--) {
+        tableau[j] = tableau[j-1];
+    }
+
+    // Insertion de la valeur
+    tableau[position] = valeur;
+    tailleTableau++; // Augmentation de la taille
+
+    // Affichage du résultat
+    console.log("\\n=== Tableau après insertion ===");
+    console.log(tableau.slice(0, tailleTableau).join(" - "));
+    
+    return tableau.slice(0, tailleTableau);
+}
+
+insertionTriee();`,
+    testCases: [
+      {
+        input: [3, 1, 3, 5, 4],
+        expected: [1, 3, 4, 5],
+        description: "Insertion au milieu",
+      },
+      {
+        input: [3, 2, 4, 6, 1],
+        expected: [1, 2, 4, 6],
+        description: "Insertion au début",
+      },
+      {
+        input: [3, 1, 3, 5, 7],
+        expected: [1, 3, 5, 7],
+        description: "Insertion à la fin",
+      },
+    ],
+  },
 };
