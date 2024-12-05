@@ -33,4 +33,32 @@ for (let i = 0; i < nombres.length; i++) {
       },
     ],
   },
+  exo23: {
+    problemId: "exo23",
+    explanation:
+      "Cette solution crée un tableau contenant les puissances de 2 de manière itérative.",
+    code: `// Initialisation
+let puissances = new Array(11);
+let valeur = 1;
+
+console.log("=== Génération des puissances de 2 ===\\n");
+
+// Remplissage du tableau
+for (let i = 0; i < puissances.length; i++) {
+   puissances[i] = valeur;
+   console.log(\`2^\${i} = \${valeur}\`);
+   valeur *= 2;
+}
+
+// Affichage formaté
+console.log("\\n=== Contenu du tableau ===");
+console.log(puissances.join(" - "));`,
+    testCases: [
+      {
+        input: [],
+        expected: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024],
+        description: "Génération de toutes les puissances",
+      },
+    ],
+  },
 };
