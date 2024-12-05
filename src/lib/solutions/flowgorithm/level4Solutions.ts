@@ -130,4 +130,26 @@ export const level4Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme recherche une valeur et indique sa position.",
     imagePath: "level4/flowgorithm-level4-exo28.svg",
   },
+  exo29: {
+    problemId: "exo29",
+    explanation: `Ce diagramme simule un pion mobile :
+
+1. Initialisation :
+  - Tableau de 10 cases avec '-'
+  - Position initiale à 0
+  - Pion représenté par 'O'
+
+2. Boucle de Jeu :
+  - Affichage état actuel
+  - Lecture commande (g/d/q)
+  - Validation des mouvements
+  - Mise à jour position
+
+3. Contrôles :
+  - Limites du tableau (0-9)
+  - Commandes valides
+  - Option de sortie`,
+    code: "L'algorithme permet de déplacer un pion dans un tableau.",
+    imagePath: "level4/flowgorithm-level4-exo29.svg",
+  },
 };

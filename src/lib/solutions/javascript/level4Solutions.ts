@@ -382,4 +382,80 @@ rechercherValeur();`,
       },
     ],
   },
+  exo29: {
+    problemId: "exo29",
+    explanation:
+      "Cette solution simule le déplacement d'un pion dans un tableau avec commandes gauche/droite.",
+    code: `function deplacerPion() {
+   // Initialisation
+   let tableau = Array(10).fill('-');
+   let position = 0;
+   tableau[position] = 'O';
+   let continuer = true;
+
+   function afficherTableau() {
+       console.log('\\n' + tableau.join(' '));
+       console.log(\`Position: \${position + 1}/10\`);
+   }
+
+   console.log("=== Jeu du Pion Mobile ===");
+   console.log("Commandes: 'g' (gauche), 'd' (droite), 'q' (quitter)");
+
+   // Boucle principale
+   while (continuer) {
+       afficherTableau();
+       
+       const commande = prompt("\\nVotre commande : ").toLowerCase();
+       
+       switch(commande) {
+           case 'q':
+               console.log("\\nFin du jeu !");
+               continuer = false;
+               break;
+               
+           case 'g':
+               if (position > 0) {
+                   tableau[position] = '-';
+                   position--;
+                   tableau[position] = 'O';
+               } else {
+                   console.log("\\nImpossible d'aller à gauche !");
+               }
+               break;
+               
+           case 'd':
+               if (position < 9) {
+                   tableau[position] = '-';
+                   position++;
+                   tableau[position] = 'O';
+               } else {
+                   console.log("\\nImpossible d'aller à droite !");
+               }
+               break;
+               
+           default:
+               console.log("\\nCommande invalide !");
+       }
+   }
+}
+
+deplacerPion();`,
+    testCases: [
+      {
+        input: ["d", "d", "g", "q"],
+        expected: "Position finale: 1",
+        description: "Déplacements simples",
+      },
+      {
+        input: ["g", "q"],
+        expected: "Mouvement impossible",
+        description: "Test limite gauche",
+      },
+      {
+        input: ["d", "d", "d", "d", "d", "d", "d", "d", "d", "d", "q"],
+        expected: "Mouvement impossible",
+        description: "Test limite droite",
+      },
+    ],
+  },
 };
