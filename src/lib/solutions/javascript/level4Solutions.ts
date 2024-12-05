@@ -120,4 +120,61 @@ calculerMoyenneScores();`,
       },
     ],
   },
+  exo25: {
+    problemId: "exo25",
+    explanation:
+      "Cette solution permet d'inverser les éléments d'un tableau en utilisant deux pointeurs.",
+    code: `function inverserTableau() {
+   // Saisie de la taille
+   const taille = parseInt(prompt("Entrez la taille du tableau : "));
+   if (isNaN(taille) || taille <= 0) {
+       console.log("Taille invalide");
+       return;
+   }
+
+   // Création et remplissage du tableau
+   let tableau = new Array(taille);
+   console.log("\\n=== Saisie des éléments ===");
+   for (let i = 0; i < taille; i++) {
+       tableau[i] = prompt(\`Élément n°\${i + 1} : \`);
+   }
+
+   // Affichage tableau initial
+   console.log("\\n=== Tableau initial ===");
+   console.log(tableau.join(" - "));
+
+   // Inversion du tableau
+   for (let debut = 0, fin = taille - 1; debut < fin; debut++, fin--) {
+       // Échange des éléments
+       let temp = tableau[debut];
+       tableau[debut] = tableau[fin];
+       tableau[fin] = temp;
+   }
+
+   // Affichage tableau inversé
+   console.log("\\n=== Tableau inversé ===");
+   console.log(tableau.join(" - "));
+   
+   return tableau;
+}
+
+inverserTableau();`,
+    testCases: [
+      {
+        input: [3, "A", "B", "C"],
+        expected: ["C", "B", "A"],
+        description: "Inversion de 3 lettres",
+      },
+      {
+        input: [4, 1, 2, 3, 4],
+        expected: [4, 3, 2, 1],
+        description: "Inversion de 4 nombres",
+      },
+      {
+        input: [2, "début", "fin"],
+        expected: ["fin", "début"],
+        description: "Inversion de 2 mots",
+      },
+    ],
+  },
 };

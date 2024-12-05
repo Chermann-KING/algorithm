@@ -27,7 +27,7 @@ export const level4Solutions: SolutionRecord<FlowgorithmSolution> = {
 3. Résultat :
   - Suite complète : 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024`,
     code: "L'algorithme génère les puissances de 2 dans un tableau.",
-    imagePath: "level3/flowgorithm-level3-exo23.svg",
+    imagePath: "level4/flowgorithm-level4-exo23.svg",
   },
   exo24: {
     problemId: "exo24",
@@ -47,6 +47,26 @@ export const level4Solutions: SolutionRecord<FlowgorithmSolution> = {
   - Liste détaillée des scores
   - Présentation de la moyenne finale`,
     code: "L'algorithme gère un nombre variable de scores et calcule leur moyenne.",
-    imagePath: "level3/flowgorithm-level3-exo24.svg",
+    imagePath: "level4/flowgorithm-level4-exo24.svg",
+  },
+  exo25: {
+    problemId: "exo25",
+    explanation: `Ce diagramme montre l'inversion d'un tableau :
+
+1. Préparation :
+  - Demande de la taille du tableau
+  - Saisie des éléments un par un
+  - Stockage dans le tableau initial
+
+2. Processus d'inversion :
+  - Utilisation de deux indices (début et fin)
+  - Échange des éléments symétriques
+  - Progression vers le centre
+
+3. Résultat :
+  - Affichage du tableau inversé
+  - Vérification de la symétrie`,
+    code: "L'algorithme inverse l'ordre des éléments d'un tableau.",
+    imagePath: "level4/flowgorithm-level4-exo25.svg",
   },
 };
