@@ -69,4 +69,24 @@ export const level4Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme inverse l'ordre des éléments d'un tableau.",
     imagePath: "level4/flowgorithm-level4-exo25.svg",
   },
+  exo26: {
+    problemId: "exo26",
+    explanation: `Ce diagramme implémente le tri à bulles :
+
+1. Saisie des Données :
+  - Taille dynamique du tableau
+  - Remplissage des valeurs
+
+2. Processus de Tri :
+  - Deux boucles imbriquées
+  - Comparaison deux à deux
+  - Échange si nécessaire
+  - Remontée des plus grandes valeurs
+
+3. Affichage :
+  - Tableau trié en ordre croissant
+  - Vérification de l'ordre`,
+    code: "L'algorithme trie les éléments par ordre croissant.",
+    imagePath: "level4/flowgorithm-level4-exo26.svg",
+  },
 };

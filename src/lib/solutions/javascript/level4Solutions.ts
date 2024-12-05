@@ -177,4 +177,72 @@ inverserTableau();`,
       },
     ],
   },
+  exo26: {
+    problemId: "exo26",
+    explanation:
+      "Cette solution implémente le tri à bulles pour ordonner un tableau d'entiers.",
+    code: `function trierTableau() {
+   // Saisie de la taille
+   const taille = parseInt(prompt("Entrez la taille du tableau : "));
+   if (isNaN(taille) || taille <= 0) {
+       console.log("Taille invalide");
+       return;
+   }
+
+   // Création et remplissage du tableau
+   let tableau = new Array(taille);
+   console.log("\\n=== Saisie des éléments ===");
+   for (let i = 0; i < taille; i++) {
+       const valeur = parseInt(prompt(\`Élément n°\${i + 1} : \`));
+       if (isNaN(valeur)) {
+           console.log("Valeur invalide");
+           return;
+       }
+       tableau[i] = valeur;
+   }
+
+   // Affichage tableau initial
+   console.log("\\n=== Tableau initial ===");
+   console.log(tableau.join(" - "));
+
+   // Tri à bulles
+   for (let i = 0; i < taille - 1; i++) {
+       for (let j = i + 1; j < taille; j++) {
+           if (tableau[i] > tableau[j]) {
+               // Échange des éléments
+               let temp = tableau[i];
+               tableau[i] = tableau[j];
+               tableau[j] = temp;
+           }
+       }
+       // Afficher l'état après chaque passage
+       console.log(\`Passage \${i + 1} : \${tableau.join(" - ")}\`);
+   }
+
+   // Affichage final
+   console.log("\\n=== Tableau trié ===");
+   console.log(tableau.join(" - "));
+   
+   return tableau;
+}
+
+trierTableau();`,
+    testCases: [
+      {
+        input: [5, 64, 34, 25, 12, 22],
+        expected: [12, 22, 25, 34, 64],
+        description: "Tri de 5 nombres",
+      },
+      {
+        input: [4, 5, 2, 8, 1],
+        expected: [1, 2, 5, 8],
+        description: "Tri avec valeurs désordonnées",
+      },
+      {
+        input: [3, 1, 1, 1],
+        expected: [1, 1, 1],
+        description: "Tri avec valeurs identiques",
+      },
+    ],
+  },
 };
