@@ -245,4 +245,65 @@ trierTableau();`,
       },
     ],
   },
+  exo27: {
+    problemId: "exo27",
+    explanation:
+      "Cette solution recherche le minimum parmi 10 entiers et indique sa position dans le tableau.",
+    code: `function trouverMinimum() {
+   // Initialisation
+   let nombres = new Array(10);
+   
+   // Saisie des nombres
+   console.log("=== Saisie des 10 nombres ===");
+   for (let i = 0; i < 10; i++) {
+       const valeur = parseInt(prompt(\`Entrez le nombre n°\${i + 1} : \`));
+       if (isNaN(valeur)) {
+           console.log("Nombre invalide !");
+           return;
+       }
+       nombres[i] = valeur;
+   }
+
+   // Affichage des nombres saisis
+   console.log("\\n=== Nombres saisis ===");
+   console.log(nombres.join(" - "));
+
+   // Recherche du minimum
+   let minimum = nombres[0];
+   let position = 0;
+
+   for (let i = 1; i < nombres.length; i++) {
+       if (nombres[i] < minimum) {
+           minimum = nombres[i];
+           position = i;
+       }
+   }
+
+   // Affichage du résultat
+   console.log("\\n=== Résultat ===");
+   console.log(\`Le minimum est \${minimum}\`);
+   console.log(\`Il se trouve à la position \${position + 1}\`);
+   
+   return { minimum, position: position + 1 };
+}
+
+trouverMinimum();`,
+    testCases: [
+      {
+        input: [5, 3, 8, 1, 9, 4, 7, 2, 6, 0],
+        expected: { minimum: 0, position: 10 },
+        description: "Minimum en dernière position",
+      },
+      {
+        input: [0, 3, 8, 1, 9, 4, 7, 2, 6, 5],
+        expected: { minimum: 0, position: 1 },
+        description: "Minimum en première position",
+      },
+      {
+        input: [5, 3, 8, 0, 9, 4, 7, 2, 6, 1],
+        expected: { minimum: 0, position: 4 },
+        description: "Minimum au milieu",
+      },
+    ],
+  },
 };

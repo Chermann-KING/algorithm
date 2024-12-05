@@ -89,4 +89,25 @@ export const level4Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme trie les éléments par ordre croissant.",
     imagePath: "level4/flowgorithm-level4-exo26.svg",
   },
+  exo27: {
+    problemId: "exo27",
+    explanation: `Ce diagramme recherche la plus petite valeur :
+
+1. Phase de Saisie :
+  - Tableau de 10 entiers
+  - Remplissage séquentiel
+  - Validation des entrées
+
+2. Recherche du Minimum :
+  - Initialisation avec premier élément
+  - Parcours comparatif du tableau
+  - Mémorisation position et valeur
+
+3. Résultat :
+  - Affichage du minimum trouvé
+  - Indication de sa position
+  - Format: valeur et indice + 1`,
+    code: "L'algorithme trouve le plus petit élément et sa position.",
+    imagePath: "level4/flowgorithm-level4-exo27.svg",
+  },
 };
