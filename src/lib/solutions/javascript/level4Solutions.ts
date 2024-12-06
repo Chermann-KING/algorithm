@@ -544,4 +544,97 @@ insertionTriee();`,
       },
     ],
   },
+  exo31: {
+    problemId: "exo31",
+    explanation:
+      "Cette solution implémente une recherche dichotomique dans un tableau trié.",
+    code: `function rechercheDichotomique() {
+   // Saisie de la taille
+   let taille = parseInt(prompt("Entrez la taille du tableau : ") || "0");
+   if (isNaN(taille) || taille <= 0) {
+       console.log("Taille invalide");
+       return;
+   }
+
+   // Création et remplissage du tableau
+   let tableau = new Array(taille);
+   console.log("\\n=== Saisie des éléments (triés) ===");
+   
+   // Premier élément
+   tableau[0] = parseInt(prompt("Premier nombre : ") || "0");
+   if (isNaN(tableau[0])) {
+       console.log("Nombre invalide");
+       return;
+   }
+
+   // Reste des éléments (vérification tri)
+   for (let i = 1; i < taille; i++) {
+       let nombre = parseInt(prompt(\`Nombre suivant (\${i + 1}/\${taille}) : \`) || "0");
+       if (isNaN(nombre) || nombre < tableau[i-1]) {
+           console.log("Nombre invalide ou non trié");
+           return;
+       }
+       tableau[i] = nombre;
+   }
+
+   // Affichage tableau
+   console.log("\\n=== Tableau ===");
+   console.log(tableau.join(" - "));
+
+   // Valeur à rechercher
+   let valeur = parseInt(prompt("\\nValeur à rechercher : ") || "0");
+   if (isNaN(valeur)) {
+       console.log("Valeur invalide");
+       return;
+   }
+
+   // Recherche dichotomique
+   let debut = 0;
+   let fin = taille - 1;
+   let trouve = false;
+   let position = -1;
+
+   while (debut <= fin && !trouve) {
+       let milieu = Math.floor((debut + fin) / 2);
+       
+       if (tableau[milieu] === valeur) {
+           trouve = true;
+           position = milieu;
+       } else if (tableau[milieu] > valeur) {
+           fin = milieu - 1;
+       } else {
+           debut = milieu + 1;
+       }
+   }
+
+   // Affichage résultat
+   console.log("\\n=== Résultat ===");
+   if (trouve) {
+       console.log(\`Valeur \${valeur} trouvée à la position \${position + 1}\`);
+   } else {
+       console.log(\`Valeur \${valeur} non trouvée\`);
+   }
+   
+   return { trouve, position: trouve ? position + 1 : -1 };
+}
+
+rechercheDichotomique();`,
+    testCases: [
+      {
+        input: [5, 1, 3, 5, 7, 9, 5],
+        expected: { trouve: true, position: 3 },
+        description: "Recherche d'une valeur existante",
+      },
+      {
+        input: [4, 2, 4, 6, 8, 5],
+        expected: { trouve: false, position: -1 },
+        description: "Recherche d'une valeur absente",
+      },
+      {
+        input: [3, 1, 2, 3, 1],
+        expected: { trouve: true, position: 1 },
+        description: "Recherche au début",
+      },
+    ],
+  },
 };

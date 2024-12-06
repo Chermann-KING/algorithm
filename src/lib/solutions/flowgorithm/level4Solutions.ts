@@ -173,4 +173,24 @@ export const level4Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme insère une valeur en conservant le tri.",
     imagePath: "level4/flowgorithm-level4-exo30.svg",
   },
+  exo31: {
+    problemId: "exo31",
+    explanation: `Ce diagramme implémente une recherche dichotomique :
+
+1. Initialisation :
+  - Saisie tableau trié
+  - Définition des bornes de recherche
+  - Valeur à rechercher
+
+2. Recherche Dichotomique :
+  - Calcul du milieu de l'intervalle
+  - Comparaison avec la valeur recherchée
+  - Réduction de moitié de l'intervalle
+  
+3. Résultat :
+  - Position si trouvée
+  - Message si absente`,
+    code: "L'algorithme utilise la recherche dichotomique pour plus d'efficacité.",
+    imagePath: "level4/flowgorithm-level4-exo31.svg",
+  },
 };
