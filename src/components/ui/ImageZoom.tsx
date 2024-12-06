@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, MouseEvent, useEffect } from "react";
+import { useState, useRef, MouseEvent, TouchEvent, useEffect } from "react";
 import NextImage from "next/image";
 import { ZoomIn, ZoomOut } from "lucide-react";
 
@@ -28,7 +28,7 @@ export default function ImageZoom({ src, alt }: ImageZoomProps) {
 
   // Obtient les dimensions réelles de l'image
   useEffect(() => {
-    const img = new window.Image();
+    const img = new Image();
     img.src = src;
     img.onload = () => {
       setImageDimensions({
@@ -43,7 +43,7 @@ export default function ImageZoom({ src, alt }: ImageZoomProps) {
       const newScale = zoomIn ? prevScale + 0.5 : prevScale - 0.5;
       const finalScale = Math.max(1, Math.min(newScale, 4));
 
-      // Réajuster la position si nécessaire avec le nouveau scale
+      // Réajuste la position si nécessaire avec le nouveau scale
       if (finalScale === 1) {
         setPosition({ x: 0, y: 0 });
       }
@@ -52,6 +52,7 @@ export default function ImageZoom({ src, alt }: ImageZoomProps) {
     });
   };
 
+  // Gestion des interactions souris
   const handleDragStart = (e: MouseEvent) => {
     if (scale > 1) {
       setIsDragging(true);
@@ -68,7 +69,6 @@ export default function ImageZoom({ src, alt }: ImageZoomProps) {
       const newX = e.clientX - dragStart.x;
       const newY = e.clientY - dragStart.y;
 
-      // Calculer les limites basées sur les dimensions réelles
       const maxOffsetX = (container.width * scale - container.width) / 2;
       const maxOffsetY = (container.height * scale - container.height) / 2;
 
@@ -83,6 +83,40 @@ export default function ImageZoom({ src, alt }: ImageZoomProps) {
     setIsDragging(false);
   };
 
+  // Gestion des interactions tactiles
+  const handleTouchStart = (e: TouchEvent) => {
+    if (scale > 1) {
+      setIsDragging(true);
+      const touch = e.touches[0];
+      setDragStart({
+        x: touch.clientX - position.x,
+        y: touch.clientY - position.y,
+      });
+    }
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    if (isDragging && scale > 1 && containerRef.current) {
+      const container = containerRef.current.getBoundingClientRect();
+      const touch = e.touches[0];
+
+      const newX = touch.clientX - dragStart.x;
+      const newY = touch.clientY - dragStart.y;
+
+      const maxOffsetX = (container.width * scale - container.width) / 2;
+      const maxOffsetY = (container.height * scale - container.height) / 2;
+
+      setPosition({
+        x: Math.max(Math.min(newX, maxOffsetX), -maxOffsetX),
+        y: Math.max(Math.min(newY, maxOffsetY), -maxOffsetY),
+      });
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
   return (
     <div className="relative w-full h-full group">
       <div
@@ -92,6 +126,9 @@ export default function ImageZoom({ src, alt }: ImageZoomProps) {
         onMouseMove={handleDragMove}
         onMouseUp={handleDragEnd}
         onMouseLeave={handleDragEnd}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         <div
           className="relative w-full h-full transition-transform duration-200"
