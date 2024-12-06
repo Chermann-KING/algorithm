@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import Image from "next/image";
+import ImageZoom from "@/components/ui/ImageZoom";
 import { findFlowgorithmSolution } from "@/lib/solutions/getSolution";
 
 const MermaidDiagram = dynamic(() => import("@/components/ui/Mermaid"), {
@@ -38,12 +38,9 @@ export default function NoCodeSolution({ problemId }: NoCodeSolutionProps) {
         <div className="bg-background rounded-lg p-4">
           {solution.imagePath ? (
             <div className="relative h-[600px] w-full">
-              <Image
+              <ImageZoom
                 src={`/flowcharts/${solution.imagePath}`}
                 alt={`Diagramme pour ${problemId}`}
-                fill
-                className="object-contain dark:invert"
-                priority
               />
             </div>
           ) : solution.diagram ? (
