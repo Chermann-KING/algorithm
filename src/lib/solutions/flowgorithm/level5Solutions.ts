@@ -23,4 +23,25 @@ export const level5Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme gère un jeu complet avec niveaux et rejeu.",
     imagePath: "level5/flowgorithm-projet-juste-prix.svg",
   },
+  "systeme-connexion": {
+    problemId: "systeme-connexion",
+    explanation: `Ce diagramme implémente un système de connexion sécurisé :
+
+1. Configuration :
+  - Mot de passe prédéfini
+  - Compteur de tentatives
+  - État de blocage du compte
+
+2. Sécurité :
+  - Maximum 3 tentatives
+  - Blocage automatique
+  - Messages adaptés
+
+3. Utilisateur :
+  - Suivi des tentatives restantes
+  - Messages d'erreur clairs
+  - Indication de blocage`,
+    code: "L'algorithme gère les tentatives et le blocage du compte.",
+    imagePath: "level5/flowgorithm-systeme-connexion.svg",
+  },
 };

@@ -86,4 +86,61 @@ justePrix();`,
       },
     ],
   },
+  "systeme-connexion": {
+    problemId: "systeme-connexion",
+    explanation:
+      "Cette solution implémente un système de connexion avec blocage après 3 échecs.",
+    code: `function systemeConnexion() {
+   const MOT_DE_PASSE = 'secret';
+   let tentatives = 0;
+   let compteBloque = false;
+   
+   console.log("=== SYSTÈME DE CONNEXION ===\\n");
+
+   while (tentatives < 3 && !compteBloque) {
+       console.log(\`Tentatives restantes : \${3 - tentatives}\`);
+       const motDePasse = prompt("Entrez votre mot de passe : ");
+       
+       if (!motDePasse) {
+           console.log("\\nErreur : Mot de passe vide\\n");
+           continue;
+       }
+
+       tentatives++;
+
+       if (motDePasse === MOT_DE_PASSE) {
+           console.log("\\nBienvenue ! Connexion réussie.\\n");
+           return true;
+       } else {
+           if (tentatives >= 3) {
+               compteBloque = true;
+               console.log("\\n!!! COMPTE BLOQUÉ !!!");
+               console.log("Trop de tentatives échouées.");
+               console.log("Veuillez contacter l'administrateur.\\n");
+               return false;
+           }
+           console.log("\\nMot de passe incorrect !\\n");
+       }
+   }
+}
+
+systemeConnexion();`,
+    testCases: [
+      {
+        input: ["secret"],
+        expected: true,
+        description: "Connexion réussie premier essai",
+      },
+      {
+        input: ["wrong", "wrong", "wrong"],
+        expected: false,
+        description: "Compte bloqué après 3 échecs",
+      },
+      {
+        input: ["wrong", "secret"],
+        expected: true,
+        description: "Connexion réussie deuxième essai",
+      },
+    ],
+  },
 };
