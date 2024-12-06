@@ -143,4 +143,58 @@ systemeConnexion();`,
       },
     ],
   },
+  "pattern-etoiles": {
+    problemId: "pattern-etoiles",
+    explanation:
+      "Cette solution génère un pattern d'étoiles en forme de triangle.",
+    code: `function patternEtoiles() {
+   // Saisie et validation
+   let nombre;
+   do {
+       nombre = parseInt(prompt("Entrez un nombre (> 0) : ") || "0");
+       if (isNaN(nombre) || nombre <= 0) {
+           console.log("Veuillez entrer un nombre positif valide.");
+       }
+   } while (nombre <= 0);
+
+   console.log("\\n=== Pattern d'étoiles ===\\n");
+
+   // Génération du pattern
+   for (let ligne = 1; ligne <= nombre; ligne++) {
+       let patternLigne = '';
+       
+       // Ajout des étoiles
+       for (let colonne = 1; colonne <= ligne; colonne++) {
+           patternLigne += '* ';
+       }
+       
+       console.log(patternLigne);
+   }
+
+   // Exemple de sortie pour nombre = 4:
+   // *
+   // * *
+   // * * *
+   // * * * *
+}
+
+patternEtoiles();`,
+    testCases: [
+      {
+        input: [4],
+        expected: ["*", "* *", "* * *", "* * * *"],
+        description: "Pattern 4 lignes",
+      },
+      {
+        input: [1],
+        expected: ["*"],
+        description: "Pattern minimal",
+      },
+      {
+        input: [0, 3],
+        expected: ["*", "* *", "* * *"],
+        description: "Validation entrée et pattern 3 lignes",
+      },
+    ],
+  },
 };

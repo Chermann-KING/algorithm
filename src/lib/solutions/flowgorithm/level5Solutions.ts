@@ -44,4 +44,24 @@ export const level5Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme gère les tentatives et le blocage du compte.",
     imagePath: "level5/flowgorithm-systeme-connexion.svg",
   },
+  "pattern-etoiles": {
+    problemId: "pattern-etoiles",
+    explanation: `Ce diagramme crée un pattern triangulaire d'étoiles :
+
+1. Validation :
+  - Vérification nombre positif
+  - Demande jusqu'à validité
+
+2. Construction :
+  - Boucle externe pour les lignes
+  - Boucle interne pour les étoiles
+  - Nombre croissant d'étoiles par ligne
+
+3. Affichage :
+  - Gestion des sauts de ligne
+  - Formation progressive du triangle
+  - Alignement automatique`,
+    code: "L'algorithme génère un triangle d'étoiles.",
+    imagePath: "level5/flowgorithm-pattern-etoiles.svg",
+  },
 };
