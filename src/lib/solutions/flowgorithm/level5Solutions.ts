@@ -64,4 +64,24 @@ export const level5Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme génère un triangle d'étoiles.",
     imagePath: "level5/flowgorithm-pattern-etoiles.svg",
   },
+  "format-tirets": {
+    problemId: "format-tirets",
+    explanation: `Ce diagramme crée un motif personnalisé :
+
+1. Paramètres :
+  - nbRep : nombre de répétitions du motif
+  - nbTiret : nombre de tirets par groupe
+  - nbEspace : nombre d'espaces entre les groupes
+
+2. Génération :
+  - Boucle principale pour les répétitions
+  - Sous-boucle pour les tirets
+  - Sous-boucle pour les espaces
+
+3. Exemple :
+  Si nbRep = 2, nbTiret = 1, nbEspace = 3
+  Résultat : |- - |`,
+    code: "L'algorithme génère un motif avec tirets et espaces.",
+    imagePath: "level5/flowgorithm-format-tirets.svg",
+  },
 };

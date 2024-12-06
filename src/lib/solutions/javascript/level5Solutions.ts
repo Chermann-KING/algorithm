@@ -197,4 +197,63 @@ patternEtoiles();`,
       },
     ],
   },
+  "format-tirets": {
+    problemId: "format-tirets",
+    explanation:
+      "Cette solution génère un motif répétitif de tirets et d'espaces selon des paramètres définis.",
+    code: `function formatTirets() {
+   // Saisie des paramètres
+   const nbRep = parseInt(prompt("Nombre de répétitions : ") || "0");
+   const nbTiret = parseInt(prompt("Nombre de tirets par groupe : ") || "0");
+   const nbEspace = parseInt(prompt("Nombre d'espaces entre les groupes : ") || "0");
+
+   // Validation des entrées
+   if (isNaN(nbRep) || isNaN(nbTiret) || isNaN(nbEspace) ||
+       nbRep <= 0 || nbTiret <= 0 || nbEspace < 0) {
+       console.log("Paramètres invalides !");
+       return;
+   }
+
+   console.log("\\n=== Motif Généré ===\\n");
+
+   let motif = "";
+
+   // Génération du motif
+   for (let rep = 1; rep <= nbRep; rep++) {
+       // Ajout des tirets
+       for (let t = 1; t <= nbTiret; t++) {
+           motif += "-";
+       }
+       
+       // Ajout des espaces (sauf après la dernière répétition)
+       if (rep < nbRep) {
+           for (let e = 1; e <= nbEspace; e++) {
+               motif += " ";
+           }
+       }
+   }
+
+   console.log(motif);
+   return motif;
+}
+
+formatTirets();`,
+    testCases: [
+      {
+        input: [2, 1, 3],
+        expected: "- - ",
+        description: "Motif simple",
+      },
+      {
+        input: [3, 2, 1],
+        expected: "--,--,--",
+        description: "Tirets multiples",
+      },
+      {
+        input: [1, 4, 0],
+        expected: "----",
+        description: "Sans espace",
+      },
+    ],
+  },
 };
