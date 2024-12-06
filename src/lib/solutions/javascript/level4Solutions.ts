@@ -637,4 +637,113 @@ rechercheDichotomique();`,
       },
     ],
   },
+  exo32: {
+    problemId: "exo32",
+    explanation:
+      "Cette solution fusionne deux tableaux non triés en un tableau trié.",
+    code: `function fusionTableaux() {
+   // Saisie des tailles
+   let taille1 = parseInt(prompt("Taille du premier tableau : ") || "0");
+   let taille2 = parseInt(prompt("Taille du deuxième tableau : ") || "0");
+   
+   if (isNaN(taille1) || isNaN(taille2) || taille1 <= 0 || taille2 <= 0) {
+       console.log("Tailles invalides");
+       return [];
+   }
+
+   // Création des tableaux
+   let tableau1 = new Array(taille1);
+   let tableau2 = new Array(taille2);
+
+   // Remplissage premier tableau
+   console.log("\\n=== Premier tableau ===");
+   for (let i = 0; i < taille1; i++) {
+       tableau1[i] = parseInt(prompt(\`Élément \${i + 1}/\${taille1} : \`) || "0");
+       if (isNaN(tableau1[i])) {
+           console.log("Nombre invalide");
+           return [];
+       }
+   }
+
+   // Remplissage deuxième tableau
+   console.log("\\n=== Deuxième tableau ===");
+   for (let i = 0; i < taille2; i++) {
+       tableau2[i] = parseInt(prompt(\`Élément \${i + 1}/\${taille2} : \`) || "0");
+       if (isNaN(tableau2[i])) {
+           console.log("Nombre invalide");
+           return [];
+       }
+   }
+
+   // Tri des tableaux sources
+   tableau1.sort((a, b) => a - b);
+   tableau2.sort((a, b) => a - b);
+
+   // Fusion des tableaux
+   let resultat = new Array(taille1 + taille2);
+   let i = 0, j = 0, k = 0;
+
+   // Fusion tant qu'il reste des éléments dans les deux tableaux
+   while (i < taille1 && j < taille2) {
+       if (tableau1[i] <= tableau2[j]) {
+           resultat[k] = tableau1[i];
+           i++;
+       } else {
+           resultat[k] = tableau2[j];
+           j++;
+       }
+       k++;
+   }
+
+   // Ajout des éléments restants du tableau1
+   while (i < taille1) {
+       resultat[k] = tableau1[i];
+       i++;
+       k++;
+   }
+
+   // Ajout des éléments restants du tableau2
+   while (j < taille2) {
+       resultat[k] = tableau2[j];
+       j++;
+       k++;
+   }
+
+   // Affichage des résultats
+   console.log("\\n=== Résultat ===");
+   console.log("Tableau 1 :", tableau1.join(" - "));
+   console.log("Tableau 2 :", tableau2.join(" - "));
+   console.log("Fusion triée :", resultat.join(" - "));
+   
+   return resultat;
+}
+
+fusionTableaux();`,
+    testCases: [
+      {
+        input: [
+          [3, 1, 2],
+          [2, 4, 1],
+        ],
+        expected: [1, 1, 2, 2, 3, 4],
+        description: "Fusion avec doublons",
+      },
+      {
+        input: [
+          [5, 3],
+          [2, 4, 6],
+        ],
+        expected: [2, 3, 4, 5, 6],
+        description: "Fusion tableaux différentes tailles",
+      },
+      {
+        input: [
+          [1, 3, 5],
+          [2, 4, 6],
+        ],
+        expected: [1, 2, 3, 4, 5, 6],
+        description: "Fusion alternée",
+      },
+    ],
+  },
 };

@@ -193,4 +193,25 @@ export const level4Solutions: SolutionRecord<FlowgorithmSolution> = {
     code: "L'algorithme utilise la recherche dichotomique pour plus d'efficacité.",
     imagePath: "level4/flowgorithm-level4-exo31.svg",
   },
+  exo32: {
+    problemId: "exo32",
+    explanation: `Ce diagramme fusionne deux tableaux en version triée :
+
+1. Saisie des données :
+  - Deux tableaux de tailles différentes
+  - Validation des entrées
+  - Création tableau résultat
+
+2. Processus de fusion :
+  - Tri initial des tableaux sources
+  - Fusion en ordre croissant
+  - Gestion des éléments restants
+
+3. Optimisations :
+  - Comparaison élément par élément
+  - Un seul parcours des tableaux
+  - Maintien de l'ordre dans la fusion`,
+    code: "L'algorithme fusionne deux tableaux en les triant.",
+    imagePath: "level4/flowgorithm-level4-exo32.svg",
+  },
 };
