@@ -1,9 +1,6 @@
 /**
- * Route API pour l'inscription des utilisateurs
- * @module app/api/auth/register/route
- *
- * Cette route gère la création de nouveaux utilisateurs avec validation
- * des données et hashage du mot de passe.
+ * Route API pour l'enregistrement des utilisateurs
+ * @module api/auth/register
  */
 
 import { hash } from "bcrypt";
@@ -11,7 +8,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 
-// Schéma de validation des données d'inscription
+// Schéma de validation
 const userSchema = z.object({
   name: z.string().min(1, "Le nom est requis"),
   email: z.string().email("L'adresse e-mail n'est pas valide"),
@@ -24,6 +21,7 @@ const userSchema = z.object({
     ),
 });
 
+// Gestionnaire POST
 export async function POST(request: Request) {
   try {
     // Récupération et validation des données
@@ -37,7 +35,7 @@ export async function POST(request: Request) {
 
     if (existingUser) {
       return NextResponse.json(
-        { message: "Cette adresse e-mail est déjà utilisée" },
+        { error: "Cette adresse e-mail est déjà utilisée" },
         { status: 400 }
       );
     }
@@ -54,9 +52,10 @@ export async function POST(request: Request) {
       },
     });
 
-    // Retourne les données utilisateur (sans le mot de passe)
+    // Ne pas renvoyer le mot de passe
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...userWithoutPassword } = user;
+
     return NextResponse.json(
       {
         message: "Inscription réussie",
@@ -65,20 +64,25 @@ export async function POST(request: Request) {
       { status: 201 }
     );
   } catch (error) {
-    // Gestion des erreurs de validation Zod
+    console.error("Erreur d'inscription:", error);
+
     if (error instanceof z.ZodError) {
-      const errors = error.errors.map((err) => ({
-        field: err.path.join("."),
-        message: err.message,
-      }));
-      return NextResponse.json({ errors }, { status: 400 });
+      return NextResponse.json(
+        { error: error.errors[0].message },
+        { status: 400 }
+      );
     }
 
     // Gestion des autres erreurs
     console.error("Erreur lors de l'inscription:", error);
     return NextResponse.json(
-      { message: "Une erreur est survenue lors de l'inscription" },
+      { error: "Une erreur est survenue lors de l'inscription" },
       { status: 500 }
     );
   }
+}
+
+// Pour autoriser uniquement la méthode POST
+export async function GET() {
+  return new NextResponse("Method not allowed", { status: 405 });
 }
