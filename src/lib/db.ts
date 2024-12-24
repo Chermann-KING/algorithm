@@ -1,43 +1,22 @@
-/**
- * Configuration et initialisation du client Prisma
- * @module lib/db
- *
- * Ce fichier configure et exporte une instance unique de PrismaClient pour toute l'application.
- * Il implémente un pattern singleton pour éviter la création de multiples connexions à la base de données,
- * particulièrement important en mode développement avec le hot reloading.
- *
- * @requires @prisma/client - Client Prisma généré
- */
+import mongoose from "mongoose";
 
-import { PrismaClient } from "@prisma/client";
-
-/**
- * Extension des types globaux pour inclure l'instance Prisma
- * Ceci permet de stocker l'instance dans l'objet global en développement
- */
-declare global {
-  // eslint-disable-next-line no-var
-  var prisma: PrismaClient | undefined;
+if (!process.env.MONGODB_URI) {
+  throw new Error(
+    "Veuillez définir l'URI MongoDB dans les variables d'environnement"
+  );
 }
 
-/**
- * Création d'une instance unique de PrismaClient
- * Réutilise l'instance existante si disponible dans l'objet global,
- * sinon en crée une nouvelle avec le logging des requêtes activé
- */
-export const prisma =
-  globalThis.prisma ||
-  new PrismaClient({
-    log: ["query"], // Active le logging des requêtes SQL
-  });
+export async function connectDB() {
+  try {
+    if (mongoose.connection.readyState === 1) {
+      return mongoose.connection;
+    }
 
-/**
- * En développement uniquement :
- * Stocke l'instance Prisma dans l'objet global pour persister
- * la connexion à travers les rechargements du module
- */
-if (process.env.NODE_ENV !== "production") {
-  globalThis.prisma = prisma;
+    return await mongoose.connect(process.env.MONGODB_URI!);
+  } catch (error) {
+    console.error("Erreur de connexion MongoDB:", error);
+    throw error;
+  }
 }
 
-export default prisma;
+export default connectDB;
