@@ -2,7 +2,7 @@ import { Footer } from "@/components/ui/Footer";
 import { Header } from "@/components/ui/Header";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 
 export default async function MainLayout({
   children,
