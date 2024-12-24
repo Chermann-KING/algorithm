@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Définitions des gradients et filtres -->
+  <defs>
+    <linearGradient id="blockGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9333EA"/>
+      <stop offset="100%" style="stop-color:#7E22CE"/>
+    </linearGradient>
+    
+    <!-- Filtre pour l'effet de lueur -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Groupe des blocs flottants -->
+  <g id="floating-blocks">
+    <!-- Premier bloc: Condition IF -->
+    <g transform="translate(200,150)">
+      <rect width="120" height="60" rx="5" 
+            fill="url(#blockGradient)" opacity="0.9"
+            filter="url(#glow)">
+        <animate attributeName="transform"
+                 values="translate(0,0); translate(0,-10); translate(0,0)"
+                 dur="4s"
+                 repeatCount="indefinite"/>
+      </rect>
+      <text x="20" y="35" fill="white" font-family="monospace">if (x > 0)</text>
+    </g>
+
+    <!-- Deuxième bloc: Boucle WHILE -->
+    <g transform="translate(400,200)">
+      <rect width="140" height="60" rx="5" 
+            fill="url(#blockGradient)" opacity="0.9"
+            filter="url(#glow)">
+        <animate attributeName="transform"
+                 values="translate(0,0); translate(0,-10); translate(0,0)"
+                 dur="3.5s"
+                 begin="0.5s"
+                 repeatCount="indefinite"/>
+      </rect>
+      <text x="20" y="35" fill="white" font-family="monospace">while (true)</text>
+    </g>
+
+    <!-- Troisième bloc: Tableau -->
+    <g transform="translate(300,300)">
+      <rect width="160" height="60" rx="5" 
+            fill="url(#blockGradient)" opacity="0.9"
+            filter="url(#glow)">
+        <animate attributeName="transform"
+                 values="translate(0,0); translate(0,-10); translate(0,0)"
+                 dur="4.5s"
+                 begin="1s"
+                 repeatCount="indefinite"/>
+      </rect>
+      <text x="20" y="35" fill="white" font-family="monospace">array[i] = value</text>
+    </g>
+
+    <!-- Lignes de connexion -->
+    <g id="connections" stroke="#9333EA" stroke-width="2" opacity="0.5">
+      <path d="M260,210 C260,240 300,270 300,300">
+        <animate attributeName="opacity"
+                 values="0.3;0.7;0.3"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+      </path>
+      <path d="M470,260 C470,280 460,290 460,300">
+        <animate attributeName="opacity"
+                 values="0.3;0.7;0.3"
+                 dur="3s"
+                 begin="0.5s"
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+
+  <!-- Particules flottantes -->
+  <g id="particles">
+    <circle cx="300" cy="250" r="2" fill="#9333EA">
+      <animate attributeName="cy"
+               values="250;240;250"
+               dur="2s"
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity"
+               values="0.3;0.7;0.3"
+               dur="2s"
+               repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="280" r="2" fill="#9333EA">
+      <animate attributeName="cy"
+               values="280;270;280"
+               dur="2.5s"
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity"
+               values="0.3;0.7;0.3"
+               dur="2.5s"
+               repeatCount="indefinite"/>
+    </circle>
+    <circle cx="350" cy="320" r="2" fill="#9333EA">
+      <animate attributeName="cy"
+               values="320;310;320"
+               dur="3s"
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity"
+               values="0.3;0.7;0.3"
+               dur="3s"
+               repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Symboles supplémentaires -->
+  <g id="symbols" fill="#9333EA" opacity="0.3">
+    <text x="150" y="150" font-family="monospace">{</text>
+    <text x="500" y="350" font-family="monospace">}</text>
+    <text x="200" y="400" font-family="monospace">[</text>
+    <text x="450" y="100" font-family="monospace">]</text>
+  </g>
+</svg>
