@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { Book, Home } from "lucide-react";
 
 const links = [
-  { name: "Home", href: "/", icon: Home },
-  { name: "Levels", href: "/levels", icon: Book },
+  { name: "Accueil", href: "/", icon: Home },
+  { name: "Niveaux", href: "/levels", icon: Book },
 ];
 
 export function Navigation() {

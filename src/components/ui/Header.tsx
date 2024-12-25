@@ -3,14 +3,19 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import UserMenu from "@/components/auth/UserMenu";
-// import { Navigation } from "./Navigation";
+import { Navigation } from "./Navigation";
 import { SearchBar } from "./SearchBar";
 
 export function Header() {
   const { setTheme, theme } = useTheme();
   const { data: session, status } = useSession();
+  const pathname = usePathname(); // Obtenir le chemin actuel
+
+  // Vérifier si nous sommes sur la page d'accueil
+  const isHomePage = pathname === "/";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -25,14 +30,16 @@ export function Header() {
         </div>
 
         {/* Navigation */}
-        {/* <div className="hidden md:flex ml-6">
+        <div className="hidden md:flex ml-6">
           <Navigation />
-        </div> */}
-
-        {/* Barre de recherche */}
-        <div className="flex-1 max-w-md hidden sm:block">
-          <SearchBar />
         </div>
+
+        {/* Barre de recherche - cachée sur la page d'accueil */}
+        {!isHomePage && (
+          <div className="flex-1 max-w-md hidden sm:block">
+            <SearchBar />
+          </div>
+        )}
 
         {/* Actions droites */}
         <div className="flex items-center gap-2">
@@ -66,10 +73,12 @@ export function Header() {
         </div>
       </div>
 
-      {/* Barre de recherche mobile */}
-      <div className="sm:hidden px-4 pb-3">
-        <SearchBar />
-      </div>
+      {/* Barre de recherche mobile - cachée sur la page d'accueil */}
+      {!isHomePage && (
+        <div className="sm:hidden px-4 pb-3">
+          <SearchBar />
+        </div>
+      )}
     </header>
   );
 }
