@@ -1,9 +1,15 @@
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-border">
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-        <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-          <p className="text-center text-sm text-muted-foreground leading-loose md:text-left">
+    <footer className="border-t border-border py-6 md:py-0">
+      <div className="container flex flex-col items-center gap-4 md:h-24 md:flex-row md:justify-between">
+        <p className="text-sm text-muted-foreground">
+          © {currentYear} Algorithm. Tous droits réservés.
+        </p>
+
+        <p className="text-sm text-muted-foreground text-center md:text-right">
+          <span className="block md:inline">
             Developpée par{" "}
             <a
               href="https://github.com/Chermann-KING"
@@ -13,7 +19,9 @@ export function Footer() {
             >
               Chermann KING
             </a>
-            . Le code source est disponible sur{" "}
+          </span>
+          <span className="block md:inline md:before:content-['.'] md:before:mx-2">
+            Code source sur{" "}
             <a
               href="https://github.com/Chermann-KING/algorithm"
               target="_blank"
@@ -22,9 +30,8 @@ export function Footer() {
             >
               GitHub
             </a>
-            .
-          </p>
-        </div>
+          </span>
+        </p>
       </div>
     </footer>
   );
