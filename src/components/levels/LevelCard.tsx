@@ -62,6 +62,7 @@ export function LevelCard({
               problem={problem}
               isLocked={!isUnlocked}
               progress={level.progress}
+              levelId={level.id}
             />
           ))}
         </div>
