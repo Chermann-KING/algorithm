@@ -56,34 +56,30 @@ export default withAuth(
  * Configuration du middleware
  * Définit les patterns de routes qui nécessitent une authentification.
  *
- * @property {string[]} matcher - Expression régulière qui capture les routes à protéger
+ * @property {string[]} matcher - Patterns des routes à protéger
  *
  * @remarks
- * Le pattern actuel protège toutes les routes SAUF :
- * - /api/auth/* : Routes d'authentification uniquement
- * - /auth/* : Pages d'authentification
- * - /public/* : Pages publiques
- * - Les ressources statiques (_next, favicon, etc.)
+ * - Les routes /levels/* nécessitent une authentification
+ * - La page d'accueil (/) est publique
+ * - Les routes d'authentification (/auth/*) sont publiques
+ * - Les routes API d'authentification (/api/auth/*) sont publiques
  *
  * @example
  * // Routes protégées :
  * - /levels/*          ✓ Nécessite une authentification
  * - /profile          ✓ Nécessite une authentification
  * - /api/user/*       ✓ Nécessite une authentification
- * - /api/problems/*   ✓ Nécessite une authentification
- * - /api/solutions/*  ✓ Nécessite une authentification
  *
  * // Routes publiques :
- * - /                 ✗ Accessible sans authentification
- * - /auth/*          ✗ Accessible sans authentification
- * - /api/auth/*      ✗ Accessible sans authentification (nécessaire pour l'authentification)
+ * - /                 ✗ Page d'accueil publique
+ * - /auth/*          ✗ Pages d'authentification
+ * - /api/auth/*      ✗ API d'authentification
  */
 export const config = {
   matcher: [
-    // Protège toutes les routes SAUF :
-    // - Les routes d'authentification (/api/auth/*, /auth/*)
-    // - Les pages publiques (/public/*)
-    // - Les ressources statiques
-    "/((?!api/auth|_next/static|_next/image|favicon.ico|public|auth).*)",
+    // Protège /levels/* et toutes ses sous-routes
+    "/levels/:path*",
+    // Protège les routes API sauf /api/auth/*
+    "/api/:path*",
   ],
 };
