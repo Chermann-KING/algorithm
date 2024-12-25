@@ -39,7 +39,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Algorithme - Apprendre l'algorithme étape par étape",
   description:
-    "Une plateforme pour apprendre et pratiquer les algorithmes avec des solutions visuelles NOCODE et JavaScript",
+    "Une plateforme pour apprendre et pratiquer les algorithmes avec des solutions visuelles NOCODE et des langages de programmations comme JavaScript, Python, Java et plus encore.",
 };
 
 /**

@@ -3,6 +3,7 @@
  * @module app/auth/layout
  */
 
+import { Footer } from "@/components/ui/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -21,30 +22,7 @@ export default function AuthLayout({
       <main className="flex-1 flex">{children}</main>
 
       {/* Pied de page minimal */}
-      <footer className="flex justify-start gap-10 px-4 py-6 text-center text-sm text-muted-foreground leading-loose md:text-left border-t">
-        <p>© {new Date().getFullYear()} Algorithm. Tous droits réservés.</p>
-        <p className="">
-          Developpée par{" "}
-          <a
-            href="https://github.com/Chermann-KING"
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium text-foreground underline underline-offset-4 hover:text-primary"
-          >
-            Chermann KING
-          </a>
-          . Le code source est disponible sur{" "}
-          <a
-            href="https://github.com/Chermann-KING/algorithm"
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium text-foreground underline underline-offset-4 hover:text-primary"
-          >
-            GitHub
-          </a>
-          .
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -26,6 +26,7 @@ const LoginForm = () => {
         email: formData.get("email") as string,
         password: formData.get("password") as string,
         redirect: false,
+        callbackUrl: "/levels",
       });
 
       if (res?.error) {
@@ -33,7 +34,7 @@ const LoginForm = () => {
         return;
       }
 
-      router.push("/"); // Redirection vers la page d'accueil après connexion
+      router.push("/levels"); // Redirection directe vers /levels après connexion
       router.refresh(); // Rafraîchit la session côté client
     } catch (error) {
       setError("Une erreur est survenue lors de la connexion.");

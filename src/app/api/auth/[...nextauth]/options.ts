@@ -1,7 +1,10 @@
-// src/app/api/auth/[...nextauth]/options.ts
 /**
  * Configuration des options d'authentification pour NextAuth
  * @module api/auth/options
+ *
+ * Ce fichier contient la configuration complète du système d'authentification,
+ * incluant les providers, les callbacks, les pages personnalisées et la
+ * stratégie de session.
  */
 
 import { AuthOptions } from "next-auth";
@@ -15,6 +18,10 @@ import bcrypt from "bcrypt";
  * Définit les providers, la stratégie de session, les pages personnalisées et les callbacks
  */
 export const authOptions: AuthOptions = {
+  /**
+   * Configuration des providers d'authentification
+   * Actuellement utilise uniquement le provider Credentials pour l'authentification par email/mot de passe
+   */
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -25,7 +32,20 @@ export const authOptions: AuthOptions = {
       /**
        * Fonction d'autorisation pour valider les credentials
        * @param credentials - Les credentials fournis par l'utilisateur
-       * @returns L'utilisateur authentifié ou null
+       * @returns L'utilisateur authentifié ou null si l'authentification échoue
+       *
+       * @example
+       * // Succès d'authentification
+       * authorize({
+       *   email: "user@example.com",
+       *   password: "password123"
+       * }) // Retourne l'objet utilisateur
+       *
+       * // Échec d'authentification
+       * authorize({
+       *   email: "invalid@example.com",
+       *   password: "wrongpass"
+       * }) // Retourne null
        */
       async authorize(credentials) {
         try {
@@ -68,20 +88,35 @@ export const authOptions: AuthOptions = {
     }),
   ],
 
-  // Configuration de la session
+  /**
+   * Configuration de la session
+   * Utilise la stratégie JWT pour la gestion des sessions
+   */
   session: {
     strategy: "jwt",
+    maxAge: 24 * 60 * 60, // 24 heures
   },
 
-  // Pages personnalisées
+  /**
+   * Configuration des pages personnalisées
+   * Définit les URLs des pages d'authentification personnalisées
+   */
   pages: {
-    signIn: "/auth/connexion",
+    signIn: "/auth/connexion", // Page de connexion personnalisée
+    signOut: "/", // Redirection après déconnexion
+    error: "/auth/error", // Page d'erreur d'authentification
   },
 
-  // Callbacks pour personnaliser les tokens et sessions
+  /**
+   * Configuration des callbacks
+   * Personnalise le comportement de l'authentification
+   */
   callbacks: {
     /**
      * Personnalisation du JWT token
+     * @param token - Token JWT actuel
+     * @param user - Données de l'utilisateur (seulement pendant la connexion)
+     * @returns Token JWT modifié
      */
     async jwt({ token, user }) {
       if (user) {
@@ -95,6 +130,9 @@ export const authOptions: AuthOptions = {
 
     /**
      * Personnalisation de la session utilisateur
+     * @param session - Session actuelle
+     * @param token - Token JWT
+     * @returns Session modifiée
      */
     async session({ session, token }) {
       if (session.user) {
@@ -105,5 +143,41 @@ export const authOptions: AuthOptions = {
       }
       return session;
     },
+
+    /**
+     * Gestion des redirections après authentification
+     * @param url - URL de redirection demandée
+     * @param baseUrl - URL de base de l'application
+     * @returns URL de redirection finale
+     *
+     * @example
+     * // Redirection vers une page interne
+     * redirect("/dashboard") // Retourne "http://example.com/dashboard"
+     *
+     * // Tentative de redirection externe
+     * redirect("https://external.com") // Retourne l'URL de base
+     */
+    async redirect({ url, baseUrl }) {
+      // Si c'est une URL de callback après connexion, toujours rediriger vers /levels
+      if (url.includes("callbackUrl")) {
+        return `${baseUrl}/levels`;
+      }
+      // Si l'URL est relative
+      if (url.startsWith("/")) {
+        return `${baseUrl}${url}`;
+      }
+      // Si l'URL est absolue et du même domaine
+      if (new URL(url).origin === baseUrl) {
+        return url;
+      }
+      // Par défaut rediriger vers /levels
+      return `${baseUrl}/levels`;
+    },
   },
+
+  /**
+   * Configuration des secrets
+   * Utilise la variable d'environnement NEXTAUTH_SECRET
+   */
+  secret: process.env.NEXTAUTH_SECRET,
 };
