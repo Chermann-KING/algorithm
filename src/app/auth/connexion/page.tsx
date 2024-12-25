@@ -24,8 +24,12 @@ export default async function LoginPage({
       <div className="flex-1 flex flex-col justify-center items-center">
         <div className="w-full max-w-sm px-8">
           {searchParams?.success === "inscription" && (
-            <div className="mb-6 bg-green-50 text-green-600 p-3 rounded-md text-sm">
-              Inscription réussie ! Vous pouvez maintenant vous connecter.
+            <div className="mb-6 p-4 bg-green-50 dark:bg-green-900 text-green-600 dark:text-green-100 rounded-lg text-sm">
+              <p>Inscription réussie !</p>
+              <p>
+                Connectez-vous pour commencer votre parcours
+                d&apos;apprentissage.
+              </p>
             </div>
           )}
 

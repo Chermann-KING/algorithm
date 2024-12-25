@@ -158,12 +158,20 @@ export const authOptions: AuthOptions = {
      * redirect("https://external.com") // Retourne l'URL de base
      */
     async redirect({ url, baseUrl }) {
-      // Si l'URL est relative, on la combine avec l'URL de base
-      if (url.startsWith("/")) return `${baseUrl}${url}`;
-      // Si l'URL est déjà absolue et du même domaine
-      else if (new URL(url).origin === baseUrl) return url;
-      // Sinon, redirection vers la page principale après connexion
-      return baseUrl + "/levels";
+      // Si c'est une URL de callback après connexion, toujours rediriger vers /levels
+      if (url.includes("callbackUrl")) {
+        return `${baseUrl}/levels`;
+      }
+      // Si l'URL est relative
+      if (url.startsWith("/")) {
+        return `${baseUrl}${url}`;
+      }
+      // Si l'URL est absolue et du même domaine
+      if (new URL(url).origin === baseUrl) {
+        return url;
+      }
+      // Par défaut rediriger vers /levels
+      return `${baseUrl}/levels`;
     },
   },
 
