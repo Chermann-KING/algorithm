@@ -9,6 +9,7 @@ import { ReactNode } from "react";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { SearchProvider } from "@/context/search-context";
 import { SessionProvider } from "@/providers/session-provider";
+import { ProgressProvider } from "@/context/progress-context";
 
 interface RootProviderProps {
   children: ReactNode;
@@ -18,7 +19,9 @@ export function RootProvider({ children }: RootProviderProps) {
   return (
     <ThemeProvider>
       <SessionProvider>
-        <SearchProvider>{children}</SearchProvider>
+        <ProgressProvider>
+          <SearchProvider>{children}</SearchProvider>
+        </ProgressProvider>
       </SessionProvider>
     </ThemeProvider>
   );
